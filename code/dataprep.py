@@ -1,4 +1,5 @@
 import os
+import shutil
 
 import pyspark.sql.functions as F
 from openlocationcode import openlocationcode
@@ -14,8 +15,15 @@ def convert_coordinate_to_grid(lat, long):
         pass
 
 
-def load_data(spark):
-    df = spark.read.csv(TRIP_DATA_PATH, header=True).repartition(1000)
+def sample_data_and_write(df, output_path):
+    df = df.limit(10000)
+    output_path = os.path.abspath(output_path)
+    return df.coalesce(1).write.csv(f'file://{output_path}', mode='overwrite', header=True)
+
+
+def load_data(spark, input_path):
+    input_path = os.path.abspath(input_path)
+    df = spark.read.csv(input_path, header=True)
     return df
 
 
@@ -37,15 +45,26 @@ def write_pickup_dropoff_to_seperate_files(df, pickup_dropoff_pairs, result_path
     result_path = os.path.abspath(result_path)
     for pickup, dropoff in pickup_dropoff_pairs:
         filtered = df.where(f'{PICKUP_COLUMN} = "{pickup}" and {DROPOFF_COLUMN} = "{dropoff}"')
-        filtered.coalesce(1).write.csv(f'file://{result_path}/trip_data_{pickup}_{dropoff}', mode='overwrite')
+        filtered.coalesce(1).write.csv(f'file://{result_path}/trip_data_{pickup}_{dropoff}',
+                                       mode='overwrite', header=True)
+
+
+def extract_csvs_from_output_subfolders(result_path):
+    for subfolder in os.listdir(result_path):
+        csv_temp_name = os.listdir(os.path.join(result_path, subfolder))
+        csv_temp_name = [name for name in csv_temp_name if name.endswith('csv')][0]
+        os.rename(os.path.join(result_path, subfolder, csv_temp_name),
+                  os.path.join(result_path, f'{subfolder}.csv'))
+        shutil.rmtree(os.path.join(result_path, subfolder), ignore_errors=True)
 
 
 def dataprep():
     spark = create_context(partitions=1000)
-    df = load_data(spark)
+    df = load_data(spark, TRIP_DATA_PATH)
     df = add_grid_columns(df)
     most_used = find_most_used_grids(df)
     write_pickup_dropoff_to_seperate_files(df, most_used, TRIP_DATA_GRIDS_PATH)
+    extract_csvs_from_output_subfolders(TRIP_DATA_GRIDS_PATH)
 
 
 if __name__ == '__main__':
