@@ -58,7 +58,7 @@ def extract_csvs_from_output_subfolders(result_path):
         shutil.rmtree(os.path.join(result_path, subfolder), ignore_errors=True)
 
 
-def dataprep():
+def extract_points_of_interest():
     spark = create_context(partitions=1000)
     df = load_data(spark, TRIP_DATA_PATH)
     df = add_grid_columns(df)
@@ -68,4 +68,4 @@ def dataprep():
 
 
 if __name__ == '__main__':
-    dataprep()
+    extract_points_of_interest()
