@@ -1,0 +1,52 @@
+import os
+
+import pyspark.sql.functions as F
+from openlocationcode import openlocationcode
+
+from code.config import *
+from code.spark_utils import create_context
+
+
+def convert_coordinate_to_grid(lat, long):
+    try:
+        return openlocationcode.encode(float(lat), float(long), 8)
+    except:
+        pass
+
+
+def load_data(spark):
+    df = spark.read.csv(TRIP_DATA_PATH, header=True).repartition(1000)
+    return df
+
+
+def add_grid_columns(df, columns_mapping=GRID_COLUMNS_MAPPING):
+    convert_udf = F.udf(convert_coordinate_to_grid)
+    for grid_column, lat_long_columns in columns_mapping.items():
+        df = df.withColumn(grid_column, convert_udf(*lat_long_columns))
+    return df
+
+
+def find_most_used_grids(df, head=5, ):
+    df = df.where(df[PICKUP_COLUMN] != df[DROPOFF_COLUMN])
+    df = df.groupBy(PICKUP_COLUMN, DROPOFF_COLUMN).count().orderBy(F.desc('count'))
+    df_head = df.head(head)
+    return [(row[PICKUP_COLUMN], row[DROPOFF_COLUMN]) for row in df_head]
+
+
+def write_pickup_dropoff_to_seperate_files(df, pickup_dropoff_pairs, result_path):
+    result_path = os.path.abspath(result_path)
+    for pickup, dropoff in pickup_dropoff_pairs:
+        filtered = df.where(f'{PICKUP_COLUMN} = "{pickup}" and {DROPOFF_COLUMN} = "{dropoff}"')
+        filtered.coalesce(1).write.csv(f'file://{result_path}/trip_data_{pickup}_{dropoff}', mode='overwrite')
+
+
+def dataprep():
+    spark = create_context(partitions=1000)
+    df = load_data(spark)
+    df = add_grid_columns(df)
+    most_used = find_most_used_grids(df)
+    write_pickup_dropoff_to_seperate_files(df, most_used, TRIP_DATA_GRIDS_PATH)
+
+
+if __name__ == '__main__':
+    dataprep()
