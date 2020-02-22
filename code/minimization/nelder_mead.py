@@ -39,6 +39,7 @@ def nelder_mead_minimize_(f, n, xinit, iteration, error=1e-3, iteration_limit=10
 
 
 def nelder_mead_minimize(f, x0, error=1e-3, iteration_limit=100):
+    x0 = np.array(list(x0))
     n = len(x0)
     xinit = [x0]
     for i in range(n):

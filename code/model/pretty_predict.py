@@ -13,7 +13,7 @@ def plot_day_with_predict_func(df, model, predict):
         x.append(i / 60 / 60)
         y.append(predict(df, model, gen, i))
     plt.plot(x, y)
-    plt.show()
+    plt.savefig("mygraph.png")
     return gen
 
 

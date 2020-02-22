@@ -20,7 +20,7 @@ def minimize_penalty_in_boundry(df, model, row, x0, xmin, xmax, factor_iteration
     while (res is None or last_res is None or last_res[0] - res[0] > error) and counter < factor_iterations:
         last_res = res
         res_ = nelder_mead_minimize(lambda x: penalty_predict(df, model, row, x, xmin, xmax, 10 ** counter),
-                                    res[1] if res else x0)
+                                    [res[1] if res else x0])
         res_value = penalty_predict(df, model, row, res_, xmin, xmax, 10 ** counter)
         res = [res_value, res_[0], ]
         counter += 1
