@@ -15,3 +15,5 @@ GRID_COLUMNS_MAPPING = {
     PICKUP_COLUMN: ['pickup_latitude', 'pickup_longitude'],
     DROPOFF_COLUMN: ['dropoff_latitude', 'dropoff_longitude']
 }
+
+SELECT_COLS = ['pickup_datetime', 'trip_time_in_secs', 'trip_distance']

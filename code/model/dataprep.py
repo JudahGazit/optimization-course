@@ -3,12 +3,10 @@ import os
 import numpy as np
 import pandas as pd
 
-from code.config import TRIP_DATA_GRIDS_PATH
+from code.config import TRIP_DATA_GRIDS_PATH, SELECT_COLS
 from code.model.features.date_parts import add_date_parts
 from code.model.features.holidays import add_holidays
 from code.model.features.weather import add_weather
-
-features = [add_holidays, add_weather, add_date_parts]
 
 
 def format_dates(df):
@@ -19,8 +17,7 @@ def format_dates(df):
     return df
 
 
-def load_data(pickup_grid='87G8Q279+', dropoff_grid='87G8Q225+',
-              select_cols=['pickup_datetime', 'trip_time_in_secs', 'trip_distance']):
+def load_data(pickup_grid='87G8Q279+', dropoff_grid='87G8Q225+', select_cols=SELECT_COLS):
     data_path = os.path.join(os.path.abspath(TRIP_DATA_GRIDS_PATH), f'trip_data_{pickup_grid}_{dropoff_grid}.csv')
     df_grid = pd.read_csv(data_path)
     df_grid = df_grid[select_cols]
@@ -36,7 +33,7 @@ def remove_nulls_from_columns(df):
     return df
 
 
-def apply_features(base_df, features=features):
+def apply_features(base_df, features):
     df = base_df.copy()
     for feature in features:
         df = feature(df)
@@ -51,8 +48,9 @@ def clean_anomalies(df):
 
 
 def dataprep():
+    features = [add_holidays, add_weather, add_date_parts]
     df = load_data()
-    df = apply_features(df)
+    df = apply_features(df, features)
     df = clean_anomalies(df)
     df = remove_nulls_from_columns(df)
     return df
