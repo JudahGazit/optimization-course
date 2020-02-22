@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from IPython.core.display import display
+from cachey import Cache
 
 
 def plot_day_with_predict_func(df, model, predict):
@@ -18,13 +19,18 @@ def plot_day_with_predict_func(df, model, predict):
 
 
 def predict(df, model, row, time_of_day=None, buffer=1000, buffer_samples=21):
-    time_of_day_index = list(df.columns).index('time_of_day')
+    columns = df.columns
+    time_of_day_index = list(columns).index('time_of_day')
     rows = []
     time_of_day = time_of_day or row[time_of_day_index]
     for i in np.linspace(max(time_of_day - buffer, 0), min(time_of_day + buffer, 60 * 60 * 24), buffer_samples):
         row = row.copy()
         row[time_of_day_index] = i
         rows.append(row)
-    rows = pd.DataFrame(rows, columns=df.columns)
+    rows = pd.DataFrame(rows, columns=columns)
     preds = model.predict(rows)
     return preds.mean()
+
+
+c = Cache(1e9)
+predict = c.memoize(predict)
