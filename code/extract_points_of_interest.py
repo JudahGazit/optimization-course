@@ -58,14 +58,15 @@ def extract_csvs_from_output_subfolders(result_path):
         shutil.rmtree(os.path.join(result_path, subfolder), ignore_errors=True)
 
 
-def extract_points_of_interest():
-    spark = create_context(partitions=1000)
+def extract_points_of_interest(spark):
     df = load_data(spark, TRIP_DATA_PATH)
     df = add_grid_columns(df)
     most_used = find_most_used_grids(df)
-    write_pickup_dropoff_to_seperate_files(df, most_used, TRIP_DATA_GRIDS_PATH)
-    extract_csvs_from_output_subfolders(TRIP_DATA_GRIDS_PATH)
+    return df, most_used
 
 
 if __name__ == '__main__':
-    extract_points_of_interest()
+    spark = create_context(partitions=1000)
+    df, most_used = extract_points_of_interest(spark)
+    write_pickup_dropoff_to_seperate_files(df, most_used, TRIP_DATA_GRIDS_PATH)
+    extract_csvs_from_output_subfolders(TRIP_DATA_GRIDS_PATH)
