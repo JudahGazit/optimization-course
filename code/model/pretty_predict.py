@@ -6,14 +6,18 @@ from cachey import Cache
 
 
 def plot_day_with_predict_func(df, model, predict):
-    gen = df.sample(n=1, random_state=42)
+    gen = df.sample(n=1, random_state=21)
     display(gen)
     gen = gen.values[0]
     x, y = [], []
     for i in range(0, 60 * 60 * 24, 100):
         x.append(i / 60 / 60)
         y.append(predict(df, model, gen, i))
+    fig = plt.figure()
+    ax = fig.gca()
+    ax.set_xticks(np.arange(0, 24, 1))
     plt.plot(x, y)
+    plt.grid()
     plt.savefig("mygraph.png")
     return gen
 

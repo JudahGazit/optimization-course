@@ -47,7 +47,7 @@ def clean_anomalies(df):
     return df
 
 
-def dataprep():
+def data_prep():
     features = [add_holidays, add_weather, add_date_parts]
     df = load_data()
     df = apply_features(df, features)
