@@ -1175,7 +1175,9 @@ GB
 status open
 
 \begin_layout Plain Layout
-שדעכ
+
+\lang english
+https://www.kaggle.com/selfishgene/historical-hourly-weather-data
 \end_layout
 
 \end_inset
@@ -1185,7 +1187,9 @@ status open
 status open
 
 \begin_layout Plain Layout
-דשגכדש
+
+\lang english
+https://www.kaggle.com/gsnehaa21/federal-holidays-usa-19662020
 \end_layout
 
 \end_inset
@@ -1441,12 +1445,16 @@ Nelder Mead
 \noun default
 \color inherit
 )הידועה גם בשם 
-\series bold
-להשלים את השם של השיטה
-\series default
+\lang english
+downhill simplex method
+\lang hebrew
 (.
  לאחר יישום השיטות הבסיסיות, ננסה לבצע היוריסטיקות שיאפשרו לנו למצוא מינימום
  גלובלי ולא לוקאלי.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part
@@ -1478,6 +1486,1684 @@ Nelder Mead
 \color inherit
 \lang english
 data preperation
+\end_layout
+
+\begin_layout Standard
+המידע כאמור שעליו ננסה לפתור את הבעיה הוא פירוט נסיעות מונית ברחבי העיר
+ ניו יורק על גבי כל שנת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2013
+\numeric off
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename data-sample.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המידע בתצורתו המקורית מכיל את הנתונים הבאים:
+\end_layout
+
+\begin_layout Itemize
+נתוני מסגרת על הנסיעה: חברת המוניות, ו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ID
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של הנסיעה המיוצג בעמודות:
+\lang english
+ 
+\begin_inset Newline newline
+\end_inset
+
+medallion hack_license vendor_id rate_code store_and_fwd_flag
+\end_layout
+
+\begin_layout Itemize
+כמות הנוסעים במונית
+\begin_inset Newline newline
+\end_inset
+
+
+\lang english
+passenger_count
+\end_layout
+
+\begin_layout Itemize
+נתוני זמן: זמן תחילת וסיום הנסיעה, והזמן בשניות של הנסיעה כולה
+\begin_inset Newline newline
+\end_inset
+
+
+\lang english
+pickup_datetime dropoff_datetime
+\lang hebrew
+ 
+\lang english
+trip_time_in_secs
+\end_layout
+
+\begin_layout Itemize
+המרחק שעברה המונית בזמן הנסיעה )במיילים(
+\begin_inset Newline newline
+\end_inset
+
+
+\lang english
+trip_distance
+\end_layout
+
+\begin_layout Itemize
+קאורדינטות: קאורדינטת ההתחלה וקאורדינטת הסיום
+\begin_inset Newline newline
+\end_inset
+
+
+\lang english
+pickup_longitude pickup_latitude dropoff_longitude dropoff_latitude
+\end_layout
+
+\begin_layout Standard
+המידע עצמו מכיל נתוני נסיעות מכל רחבי העיר, ועל כן לא מתאים לפתרון הבעיה
+ שאנחנו מנסים לפתור )אופטימיזציה של שעת היציאה ע
+\begin_inset Quotes erd
+\end_inset
+
+ג מסלול בודד(.
+\end_layout
+
+\begin_layout Standard
+על כן תחילה נצטרך להתמקד באיזור מסוים בו יש לנו מספיק נסיעות לאורך השנה.
+\end_layout
+
+\begin_layout Standard
+התרשים הבא מציג את מיקומן של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+178
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שורות רנדומליות מתוך המידע שלנו ומדגיש עד כמה הנסיעות מפוזרות ע
+\begin_inset Quotes erd
+\end_inset
+
+ג כלל העיר ניו יורק.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename new-york-spreading.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+על מנת להתמקד באיזורים ספציפיים, נעזר בספרייה ש
+\begin_inset Quotes erd
+\end_inset
+
+מגרידה
+\begin_inset Quotes erd
+\end_inset
+
+ )
+\lang english
+grid
+\lang hebrew
+( קאורדינטות.
+ למעשה כל קאורדינטה הופכת לקוד מיוחד שמייצג תא שטח.
+ אנחנו נייצר תאי שטח בקוטר של בערך
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+250
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מטר על מנת שבכל איזור כזה יהיו לנו מספיק נקודות.
+\end_layout
+
+\begin_layout Standard
+הקוד של תהליך ה
+\begin_inset Quotes erd
+\end_inset
+
+הגרדה
+\begin_inset Quotes erd
+\end_inset
+
+ נמצא בקובץ 
+\lang english
+extract_points_of_interest.py
+\lang hebrew
+.
+ בשל כמות המידע הרבה שיש לנו )כ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+30GB
+\lang hebrew
+( אני נעזר בטכנולוגיית
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+SPARK
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שלמעשה באופן מבוזר יכולה לעבד כמויות כאלה של מידע.
+\begin_inset Newline newline
+\end_inset
+
+הספרייה שאיתה אני מבצע את ה
+\begin_inset Quotes erd
+\end_inset
+
+הגרדה
+\begin_inset Quotes erd
+\end_inset
+
+ היא ספרייה של גוגל בשם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+openlocationcode
+\lang hebrew
+.
+ עטפתי אותה בפונקציה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+convert_coordinate_to_grid
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename grid-method.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+והחלתי אותה על ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Dataframe
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename grid-method-apply.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+לאחר החלת ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+GRID
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ע
+\begin_inset Quotes erd
+\end_inset
+
+ג כלל המידע, אני לוקח את
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+זוגות ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Grids
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)זה של תחילת הנסיעה וזה של סיום הנסיעה( שהופיעו הכי הרבה במידע, ואותם שומר
+ בקבצים נפרדים )כדי שאוכל לאמן את המודל שלי עליהם בלבד(.
+ התוצר של התהליך נכתב לנתיב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+data/trip_data_grids
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+יש לשים לב שאת כל ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+dataset
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המקורי לא צירפתי לפרויקט מפאת גודלו ובמידה ורוצים להריץ את התהליך עליו יש
+ להוריד אותו בנפרד.
+ במקומו צירפתי דוגמית של החומרים לנתיב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+data/trip_data_sample
+\lang hebrew
+.
+\begin_inset Newline newline
+\end_inset
+
+ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+GRIDS
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הכי פופולארים במידע היו 
+\lang english
+87G8Q225+, 87G8Q279+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, בהם יש כ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+35
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אלף נסיעות במהלך השנה.
+ התרשים הבא מציג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+120
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נסיעות מתוכן על גבי המפה, וניתן לראות שאכן התהליך מיקד אותנו לאיזורי עניין
+ בתוך ניו יורק ותואם את ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+dataset
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אותו ניסינו להשיג במקור, כאשר יש שני ריכוזי נקודות, אחד עבור תחילת הנסיעה
+ ואחד עבור סופה - 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename new-york-grid-spreading.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+במהלך העבודה עד שלב זה ניסיתי דרכים נוספות לפתרון הבעיה:
+\end_layout
+
+\begin_layout Itemize
+שימוש ב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+grid
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ממוקד יותר ברזולוצייה של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מטרים
+\begin_inset Newline newline
+\end_inset
+
+האפשרות הזו נפסלה בגלל שהיא החזירה מעט מידי רשומות עבור תהליכי ההמשך.
+ תהליך ה
+\begin_inset Quotes erd
+\end_inset
+
+הגרדה
+\begin_inset Quotes erd
+\end_inset
+
+ לא מאפשר רזולוצייה שבין
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+250
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המטרים ל
+\numeric on
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המטרים ולכן נאלצתי להסתפק ברזולוצייה זו.
+\end_layout
+
+\begin_layout Itemize
+זניחת השימוש ב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+grid
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+והתבססות על מרחק אוקלידי בין נקודות
+\begin_inset Newline newline
+\end_inset
+
+דרך זו קשה מאוד חישובית )למעשה היא 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $n$
+\end_inset
+
+ מספר הרשומות( ולכן נזנחה.
+\end_layout
+
+\begin_layout Subsection*
+ויזואליזציה של המידע
+\end_layout
+
+\begin_layout Standard
+בשלב זה ניתן להתחיל ולנתח את התפלגות המידע שקיבלנו.
+\begin_inset Newline newline
+\end_inset
+
+הקוד ליצירת התרשימים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל נמצא בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+raw_data_stats.py
+\lang hebrew
+
+\begin_inset Newline newline
+\end_inset
+
+התרשים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל הוא היסטוגרמת זמני הנסיעה )בשניות(.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename trip_time_hist.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+התרשים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל הוא היסטוגרמת אורכי הנסיעה )במיילים(.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename trip_distance_hist.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+התרשים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל הוא היסטוגרמת שעות הנסיעה ביום )כאשר ציר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+X
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא שניות מתחילת היום(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename time_of_day_hist.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+התרשים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל הוא היסטוגרמת מהירות הנסיעה )אורך הנסיעה חלקי משך הנסיעה(
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Graphics
+	filename trip_speed_hist.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+סיכום הפרק
+\end_layout
+
+\begin_layout Enumerate
+הצלחנו לייצר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+dataset
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+35000
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רשומות של נסיעות בין שני איזורים ספציפיים בעיר ניו יורק.
+\begin_inset Newline newline
+\end_inset
+
+גיבשנו את המידע בעזרת תהליך סטנדרטי בתעשייה של הפיכת נ
+\begin_inset Quotes erd
+\end_inset
+
+צ לתא שטח.
+\end_layout
+
+\begin_layout Enumerate
+המידע )לפחות מבחינה ויזואלית( מתפלג באופן נורמלי גם בזמני הנסיעה וגם באורך
+ הנסיעה, ונראה שיש לנו נתונים מספיקים ע
+\begin_inset Quotes erd
+\end_inset
+
+ג כל שעות היום.
+\begin_inset Newline newline
+\end_inset
+
+זה למעשה תואם את הציפיות הכלליות שלנו ממידע מסוג זה.
 \end_layout
 
 \begin_layout Part
