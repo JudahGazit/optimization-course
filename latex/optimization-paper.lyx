@@ -36,7 +36,7 @@
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -61,6 +61,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 0.79in
+\topmargin 0.79in
+\rightmargin 0.79in
+\bottommargin 0.79in
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -198,11 +202,11 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
 הקדמה
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 עולם הבעיה
 \end_layout
 
@@ -539,9 +543,9 @@ Y
 \noun default
 \color inherit
 כבר עכשיו.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 מטרת הפרויקט היא לתת גישה אחרת לפתרון בעיית הנסיעה בפקקים.
  במקום לדעת 
 \series bold
@@ -556,9 +560,9 @@ Y
 מתי
 \series default
  לצאת כדי לנסוע כמה שפחות זמן בדרך שלי.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 כלומר, אני מראש יודע מה הדרך המועדפת לנסיעה בין
 \family roman
 \series medium
@@ -652,19 +656,19 @@ Y
 \begin_layout Standard
 כמובן שמינימיזציה שכזו תהיה מאוד משעממת, כי סביר להניח שבאמצע הלילה כל הצירים
  יהיו ריקים וזמן הנסיעה בהם יהיה מינימלי.
- לכן היינו רוצים להוסיף זמן מינימלי ומקסימלי ליציאה בתור חסמים
-\end_layout
+ לכן היינו רוצים להוסיף זמן מינימלי ומקסימלי ליציאה בתור חסמים.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 בסה
 \begin_inset Quotes erd
 \end_inset
 
 כ אני רוצה לדעת מה היא שעת היציאה שתיתן לי זמן נסיעה מינימלי בציר, תוך התנאי
  ששעת היציאה צריכה להיות בטווח זמנים מסוים.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 הסיבה שאני רוצה לקבל מדד כזה נובעת מכך שבעבודה שלי אין לי שעת הגדרה קשיחה
  )היות ואני משתכר שכר גלובלי(, אלא טווח זמנים שבו אני צריך להיות במשרד שלי.
  כיוון שאין לי סיבה מוגדרת להגיע בשעה 
@@ -900,6 +904,7 @@ https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename tel-aviv-congestion.png
 	width 30page%
@@ -909,7 +914,7 @@ https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 תכנית פעולה
 \end_layout
 
@@ -939,7 +944,10 @@ https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics
 \end_deeper
 \begin_layout Enumerate
 ביצוע רגרסייה על גבי המידע שתאפשר לנו לחזות את זמן הנסיעה ברמת דיוק מספיקה.
- כדי לבצע רגרסייה כזו נצמיד את המידע על הנסיעות לנתונים נוספים:
+\begin_inset Newline newline
+\end_inset
+
+כדי לבצע רגרסייה כזו נצמיד את המידע על הנסיעות לנתונים נוספים:
 \end_layout
 
 \begin_deeper
@@ -983,12 +991,16 @@ Regressor
 \noun default
 \color inherit
 שנקבל.
- המינימיזציה מניחה יום כלשהו עם כל נתוני המסגרת שלו, והתנאים שלה היא שזמן
+ 
+\begin_inset Newline newline
+\end_inset
+
+המינימיזציה מניחה יום כלשהו עם כל נתוני המסגרת שלו, והתנאים שלה היא שזמן
  תחילת הנסיעה נמצא בטווח הזמנים המבוקש.
  המינימיזציה מחזירה את זמן תחילת הנסיעה המינימלי לפי הרגרסייה שלנו.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 גיבוש מידע מתאים
 \end_layout
 
@@ -1231,7 +1243,7 @@ data preperation
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 אתגר המינימיזציה
 \end_layout
 
@@ -1457,7 +1469,7 @@ downhill simplex method
 
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
 הבניית המידע -
 \family roman
 \series bold
@@ -1486,6 +1498,10 @@ downhill simplex method
 \color inherit
 \lang english
 data preperation
+\end_layout
+
+\begin_layout Subsection
+חילוץ המידע המתאים
 \end_layout
 
 \begin_layout Standard
@@ -1524,6 +1540,7 @@ data preperation
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename data-sample.png
 	width 70page%
@@ -1721,6 +1738,7 @@ pickup_longitude pickup_latitude dropoff_longitude dropoff_latitude
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename new-york-spreading.png
 	width 30page%
@@ -1728,9 +1746,9 @@ pickup_longitude pickup_latitude dropoff_longitude dropoff_latitude
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 על מנת להתמקד באיזורים ספציפיים, נעזר בספרייה ש
 \begin_inset Quotes erd
 \end_inset
@@ -1974,15 +1992,17 @@ convert_coordinate_to_grid
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename grid-method.png
+	width 30page%
 
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 והחלתי אותה על ה
 \family roman
 \series medium
@@ -2016,15 +2036,17 @@ Dataframe
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename grid-method-apply.png
+	width 30page%
 
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 לאחר החלת ה
 \family roman
 \series medium
@@ -2567,16 +2589,17 @@ dataset
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename new-york-grid-spreading.png
-	width 30page%
+	width 20page%
 
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 במהלך העבודה עד שלב זה ניסיתי דרכים נוספות לפתרון הבעיה:
 \end_layout
 
@@ -2858,7 +2881,7 @@ grid
  מספר הרשומות( ולכן נזנחה.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 ויזואליזציה של המידע
 \end_layout
 
@@ -2912,6 +2935,7 @@ raw_data_stats.py
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename trip_time_hist.png
 	width 30page%
@@ -2919,17 +2943,72 @@ raw_data_stats.py
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 התרשים הנ
 \begin_inset Quotes erd
 \end_inset
 
-ל הוא היסטוגרמת אורכי הנסיעה )במיילים(.
+ל הוא היסטוגרמת אורכי הנסיעה )במיילים(, עבור אורכי נסיעה הקטנים מ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מייל.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename trip_distance_hist.png
 	width 30page%
@@ -2937,9 +3016,9 @@ raw_data_stats.py
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 התרשים הנ
 \begin_inset Quotes erd
 \end_inset
@@ -3002,6 +3081,7 @@ X
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename time_of_day_hist.png
 	width 30page%
@@ -3009,9 +3089,9 @@ X
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 התרשים הנ
 \begin_inset Quotes erd
 \end_inset
@@ -3019,7 +3099,8 @@ X
 ל הוא היסטוגרמת מהירות הנסיעה )אורך הנסיעה חלקי משך הנסיעה(
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename trip_speed_hist.png
 	width 30page%
@@ -3027,9 +3108,10 @@ X
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Subsection
+\noindent
 סיכום הפרק
 \end_layout
 
@@ -3166,15 +3248,1386 @@ dataset
 זה למעשה תואם את הציפיות הכלליות שלנו ממידע מסוג זה.
 \end_layout
 
-\begin_layout Part
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 בניית המודל
 \end_layout
 
-\begin_layout Part
+\begin_layout Subsection
+הנדסת פיצ'רים מתאימים
+\end_layout
+
+\begin_layout Standard
+כלל הקוד של הפרק הזה מופיע בנתיב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+תחת הקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+data_prep.py
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ותיקיית הקבצים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+features/
+\end_layout
+
+\begin_layout Subsubsection
+חילוץ מתוך המידע הקיים
+\end_layout
+
+\begin_layout Standard
+השלב הראשון בעבודה שלנו הוא חילוץ הנתונים מתוך המידע שיצרנו בפרק הקודם.
+\end_layout
+
+\begin_layout Standard
+מרבית הנתונים בטבלה המקורית אינם מעניינים אותנו.
+ אני לא רוצה ללמוד על נתונים כמו כמות הנוסעים במונית או חברת המוניות, היות
+ ואלו נתונים שלא רלוונטים לבעיה שאני מנסה לפתור )נסיעה ברכב פרטי(.
+ על כן מתוך המידע המקורי נשמור על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עמודות:
+\end_layout
+
+\begin_layout Itemize
+זמן תחילת הנסיעה -
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+pickup_datetime
+\end_layout
+
+\begin_layout Itemize
+זמן הנסיעה הכולל בשניות -
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+trip_time_in_secs
+\end_layout
+
+\begin_layout Itemize
+מרחק הנסיעה הכולל במייל -
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+trip_distance
+\end_layout
+
+\begin_layout Standard
+מעמודת 
+\begin_inset Quotes eld
+\end_inset
+
+זמן תחילת הנסיעה
+\begin_inset Quotes erd
+\end_inset
+
+ נחלץ את הפיצ'ר המרכזי - זמן תחילת הנסיעה בשניות מאז תחילת היום
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename data-prep-dates.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/features/date_parts.py
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתבצע פירוק של עמודת הזמן לגורמיה - אנחנו לוקחים מתוך הזמן שלושה מאפיינים
+ - היום בשבוע, היום בחודש והחודש.
+\end_layout
+
+\begin_layout Standard
+נשים לב שלמרות שבמרבית התהליכים המקבילים היינו מחלצים גם את השנה, כאן כל
+ האירועים קרו באותה השנה ולכן לא נרצה לעוות את הלמידה שלנו בשל כך.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename datepart-cde.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+מזג אוויר
+\end_layout
+
+\begin_layout Standard
+את הנתונים ניתן להצמיד לנתוני מזג אוויר התואמים את זמני הנסיעה.
+ המידע של מזג האוויר הגיע מפרויקט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Kaggle
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ומכיל נתונים שעתיים של מזג האוויר בניו יורק )ובערים נוספות( ע
+\begin_inset Quotes erd
+\end_inset
+
+ג תקופת זמן של מספר שנים.
+\begin_inset Newline newline
+\end_inset
+
+המידע מגיע ע
+\begin_inset Quotes erd
+\end_inset
+
+ג מספר קבצים נפרדים, לפי המדד - טמפרטורה, לחות, כיוון הרוח, עוצמת הרוח,
+ לחץ ברומטרי, ותיאור מילולי של מזג האוויר.
+\begin_inset Newline newline
+\end_inset
+
+הטבלה הבאה מציגה דוגמת חומר מטבלת הטמפרטורות וטבלת התיאור המילולי.
+ אפשר לשים לב שהטמפרטורות נתונות בקלווין, והזמנים נתונים בזמן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+UTC
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)ולכן נצטרך להזיז אותם לזמן ניו יורק(
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename weather-description-demo.png
+	width 30page%
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename weather-temperature-demo.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/features/weather.py
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לוקח את נתוני מזג האוויר ומצמיד אותם בזה אחר זה לתוך הטבלה המקורית שלנו.
+\begin_inset Newline newline
+\end_inset
+
+החיבור הוא טריוויאלי, המורכבות היחידה היא שינוי איזור הזמן.
+\end_layout
+
+\begin_layout Subsubsection
+חגים לאומיים בארצות הברית
+\end_layout
+
+\begin_layout Standard
+אחד הפרמטרים המשמעותיים )אינטואיטיבית( על מצב התנועה בכבישים הוא האם מדובר
+ ביום עבודה או ביום חופש לאומי, מתוך הנחה שבימי החופש התנועה מתנהגת אחרת
+\begin_inset Newline newline
+\end_inset
+
+)מצד אחד - פחות תנועה למקומות העבודה, ומצד שני עלייה בתיירות(.
+\end_layout
+
+\begin_layout Standard
+המידע עליו אני מתבסס מגיע גם הוא מפרויקט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Kaggle
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ומכיל את כל החגים הלאומיים בארצות הברית בין השנים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1966
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2020
+\numeric off
+.
+ כאן מעניין אותנו רק קיום בינארי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ - האם יום מסויים הוא יום חופש לאומי או לא.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename holidays-demo.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+גם כאן ההצמדה פשוטה מאוד ומתבצעת בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/features/holidays.py
+\end_layout
+
+\begin_layout Subsubsection
+סינון אנומליות במידע
+\end_layout
+
+\begin_layout Standard
+מתוך המידע שמתקבל נרצה לסנן מספר תופעות לא מוסברות שככל הנראה נובעות מהסנסורים
+ שהפיקו במקור את הנתונים על מוניות.
+\end_layout
+
+\begin_layout Standard
+ספציפית, מניתוח בסיסי ניתן לראות שלעתים יש רשומות עם אורך נסיעה ארוך או
+ קצר מידי.
+ 
+\begin_inset Newline newline
+\end_inset
+
+התרשים הבא הוא היסטוגרמת אורכי הנסיעה, כפי שהוצגה בפרק הקודם, רק ללא סינון
+ על מרחק נסיעה מקסימלי:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename trip_distance_hist2.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ניתן לראות שבאמת מרבית הנסיעות מרוכזת בטווח קטן מאוד, אך ככל הנראה ישנן
+ נסיעות )פיקטיביות?( שאורכן גדול מאוד.
+\end_layout
+
+\begin_layout Standard
+כדי להתמודד עם אנומליות כאלו, נסתכל על האחוזונים השונים של מרחק הנסיעה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="12">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+אחוזון
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.99$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+מרחק
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.65$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.98$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.04$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.22$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+על כן כדרך התמודדות נתבונן רק על רשומות בהן מרחק הנסיעה 
+\begin_inset Formula $d$
+\end_inset
+
+ מקיים 
+\begin_inset Formula $0.65\leq d\leq2$
+\end_inset
+
+.
+ בזכות הסינון הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל נקבל היסטוגרמה הגיונית יותר:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename trip_distance_hist.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אנומליות נוספות במידע הן ערכים ריקים המגיעים מהפיצ'ר של מזג האוויר.
+ ערכים כאלו נשלים בעזרת החציון של יתר העמודה.
+\begin_inset Newline newline
+\end_inset
+
+כמובן שיש דרכים נוספות להשלים את המידע )למשל לקחת את הממוצע של השעות הסמוכות
+ או של אותו היום(, אבל הדרך הזו פשוטה ביותר ומספיקה לנו לעת עתה.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename data-prep-anomalies.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+את כל תהליך הוספת הפיצ'רים מבצעת הפונקציה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+data_prep
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שנמצאת תלת הקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/data_prep.py
+\lang hebrew
+: היא טוענת את המידע, מנקה אותו ומצמידה את כל הפיצ'רים המתוארים לעיל.
+\end_layout
+
+\begin_layout Subsection
+אימון המודל
+\end_layout
+
+\begin_layout Subsubsection
+רקע -
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Random Forests
+\end_layout
+
+\begin_layout Subsubsection
+אימון
+\end_layout
+
+\begin_layout Subsubsection
+מדידת איכות המודל
+\end_layout
+
+\begin_layout Subsection
+סיכום הפרק
+\end_layout
+
+\begin_layout Section
 מינימיזציה
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
 סיכום
 \end_layout
 
