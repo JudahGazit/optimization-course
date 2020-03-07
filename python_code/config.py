@@ -1,4 +1,4 @@
-ENVIRONMENT = 'prod'  ## change to prod to full data processing
+ENVIRONMENT = 'dev'  ## change to prod to full data processing
 PATH = './data/'
 
 TRIP_DATA_PATH = PATH + 'trip_data'
