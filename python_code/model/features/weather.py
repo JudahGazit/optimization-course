@@ -7,6 +7,9 @@ def load_weather_file(file_name):
     weather = pd.read_csv(PATH + f'weather/{file_name}.csv')
     weather = weather[['datetime', 'New York']]
     weather.columns = ['datetime', file_name]
+    weather.datetime = pd.to_datetime(weather.datetime, utc=True)
+    weather.datetime = weather.datetime.dt.tz_convert('US/Eastern')
+    weather.datetime = weather.datetime.dt.strftime('%Y-%m-%d %H:00:00')
     return weather
 
 
