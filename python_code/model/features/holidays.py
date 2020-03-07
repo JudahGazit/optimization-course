@@ -1,6 +1,6 @@
 import pandas as pd
 
-from code.config import PATH
+from python_code.config import PATH
 
 
 def add_holidays(df):

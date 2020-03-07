@@ -1,7 +1,7 @@
-ENVIRONMENT = 'dev'  ## change to prod to full data processing
+ENVIRONMENT = 'prod'  ## change to prod to full data processing
 PATH = './data/'
 
-TRIP_DATA_PATH = PATH + 'trip_data/trip_data_1.csv'
+TRIP_DATA_PATH = PATH + 'trip_data'
 TRIP_DATA_SAMPLE_PATH = PATH + 'trip_data_sample'
 TRIP_DATA_GRIDS_PATH = PATH + 'trip_data_grids'
 

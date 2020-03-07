@@ -4,8 +4,8 @@ import shutil
 import pyspark.sql.functions as F
 from openlocationcode import openlocationcode
 
-from code.config import *
-from code.spark_utils import create_context
+from python_code.config import *
+from python_code.spark_utils import create_context
 
 
 def convert_coordinate_to_grid(lat, long):

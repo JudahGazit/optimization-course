@@ -1,12 +1,11 @@
 import os
 
-import numpy as np
 import pandas as pd
 
-from code.config import TRIP_DATA_GRIDS_PATH, SELECT_COLS
-from code.model.features.date_parts import add_date_parts
-from code.model.features.holidays import add_holidays
-from code.model.features.weather import add_weather
+from python_code.config import TRIP_DATA_GRIDS_PATH, SELECT_COLS
+from python_code.model.features.date_parts import add_date_parts
+from python_code.model.features.holidays import add_holidays
+from python_code.model.features.weather import add_weather
 
 
 def format_dates(df):
@@ -28,8 +27,9 @@ def load_data(pickup_grid='87G8Q279+', dropoff_grid='87G8Q225+', select_cols=SEL
 def remove_nulls_from_columns(df):
     df = df.copy()
     df = df.drop(['pickup_datetime', 'DATE'], axis=1)
-    df.WSF5 = df.WSF5.apply(lambda x: 0 if np.isnan(x) else x)
-    df.WDF5 = df.WDF5.apply(lambda x: 0 if np.isnan(x) else x)
+    df.humidity = df.humidity.fillna(df.humidity.quantile())
+    df.pressure = df.pressure.fillna(df.pressure.quantile())
+    df.weather_description = df.weather_description.astype('category').cat.codes
     return df
 
 

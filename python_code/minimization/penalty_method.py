@@ -1,8 +1,8 @@
 ## time - time_of_day_max <= 0
 ## time_of_day_min - time <= 0
 
-from code.minimization.nelder_mead import nelder_mead_minimize
-from code.model.pretty_predict import predict
+from python_code.minimization.nelder_mead import nelder_mead_minimize
+from python_code.model.pretty_predict import predict
 
 
 def penalty_predict(df, model, row, time_of_day, time_of_day_min, time_of_day_max, factor=1):
