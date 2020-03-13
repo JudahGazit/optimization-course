@@ -5,21 +5,28 @@ from IPython.core.display import display
 from cachey import Cache
 
 
-def plot_day_with_predict_func(df, model, predict):
-    gen = df.sample(n=1, random_state=21)
+def plot_day_with_predict_func(df, model, predict, random_state):
+    gen = df.sample(n=1, random_state=random_state)
     display(gen)
     gen = gen.values[0]
     x, y = [], []
     for i in range(0, 60 * 60 * 24, 100):
         x.append(i / 60 / 60)
         y.append(predict(df, model, gen, i))
+    plot(x, y)
+    return gen
+
+
+def plot(x, y):
     fig = plt.figure()
     ax = fig.gca()
     ax.set_xticks(np.arange(0, 24, 1))
+    ax.set_xlabel('Start Time (hours)')
+    ax.set_ylabel('Travel Time (seconds)')
+    ax.set_title('Travel Time During the Day')
     plt.plot(x, y)
     plt.grid()
     plt.savefig("mygraph.png")
-    return gen
 
 
 def predict(df, model, row, time_of_day=None, buffer=1000, buffer_samples=21):
@@ -35,6 +42,14 @@ def predict(df, model, row, time_of_day=None, buffer=1000, buffer_samples=21):
     preds = model.predict(rows)
     return preds.mean()
 
+
+def model_predict(df, model, row, time_of_day=None):
+    columns = df.columns
+    time_of_day_index = list(columns).index('time_of_day')
+    row = row.copy()
+    row[time_of_day_index] = time_of_day or row[time_of_day_index]
+    pred = model.predict(pd.DataFrame([row], columns=columns))
+    return pred[0]
 
 c = Cache(1e9)
 predict = c.memoize(predict)
