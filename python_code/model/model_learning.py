@@ -28,7 +28,7 @@ def random_forest(df):
     train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
     x_train, y_train = train_df.drop('trip_time_in_secs', axis=1), train_df.trip_time_in_secs
     x_test, y_test = test_df.drop('trip_time_in_secs', axis=1), test_df.trip_time_in_secs
-    m = RandomForestRegressor(n_jobs=-1, n_estimators=40, max_features=0.9, min_samples_leaf=3, oob_score=True)
+    m = RandomForestRegressor(n_jobs=-1, n_estimators=40, max_features=0.5, min_samples_leaf=3, oob_score=True)
     m.fit(x_train, y_train)
     print_score(m, x_train, y_train, x_test, y_test)
     return df, m
