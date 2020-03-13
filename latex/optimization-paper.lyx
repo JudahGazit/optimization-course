@@ -5321,6 +5321,60 @@ test
  רציפה.
 \end_layout
 
+\begin_layout Remarks
+כמובן שגם הפונקציה 
+\begin_inset Formula $\frac{1}{2\epsilon}\int_{x-\epsilon}^{x+\epsilon}f(x)dx$
+\end_inset
+
+ היא רציפה.
+\end_layout
+
+\begin_layout Remarks
+תהי החלוקה 
+\begin_inset Formula $\{x_{n_{i}}\}_{i=0}^{n}$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $x-\epsilon=x_{n_{0}}<x_{n_{1}}<...<x_{n_{n}}=x+\epsilon$
+\end_inset
+
+ חלוקה ל
+\begin_inset Formula $n$
+\end_inset
+
+ מקטעים.
+ אזי:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2\epsilon}\int_{x-\epsilon}^{x+\epsilon}f(x)dx & =\lim_{n\rightarrow\infty}\frac{1}{2\epsilon}\cdot\sum_{i=1}^{n}f(x_{n_{i}})\cdot\frac{x+\epsilon-x+\epsilon}{n}\\
+ & =\lim_{n\rightarrow\infty}\frac{1}{n}\cdot\sum_{i=1}^{n}f(x_{n_{i}})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remarks
+על כן אם נבחר 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, יתקיים 
+\begin_inset Formula $\frac{1}{n}\cdot\sum_{i=1}^{n}f(x_{n_{i}})\overset{n\rightarrow\infty}{\longrightarrow}\frac{1}{2\epsilon}\int_{x-\epsilon}^{x+\epsilon}f(x)dx$
+\end_inset
+
+, ולכן נוכל לקחת 
+\begin_inset Formula $n$
+\end_inset
+
+ מספיק גדול כדי לקבל קירוב לאינטגרל הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל.
+\end_layout
+
 \begin_layout Standard
 לפי הטענה, מתוך הנחה שפונקציית ה
 \family roman
@@ -5450,8 +5504,11 @@ python_code/model/pretty_predict.py
 \uwave default
 \noun default
 \color inherit
-אנחנו מיישמים פונקציית פרדיקציה אלטרנטיבית שמחשבת את ממוצע הפרדיקציות בסביבת
- הנקודה:
+אנחנו מיישמים פונקציית פרדיקציה אלטרנטיבית שמחשבת את 
+\series bold
+ממוצע
+\series default
+ הפרדיקציות בסביבת הנקודה:
 \end_layout
 
 \begin_layout Standard
@@ -5498,7 +5555,7 @@ predict
 \lang hebrew
 , היא מייצרת שורות בטווח ובכמות המוגדרות כפרמטר )ברירת המחדל כאן היא בטווח
  של 
-\begin_inset Formula $\pm1000_{sec}$
+\begin_inset Formula $\epsilon=1000_{sec}$
 \end_inset
 
  לייצר
@@ -5528,7 +5585,11 @@ predict
 \uwave default
 \noun default
 \color inherit
-21
+
+\begin_inset Formula $n=21$
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -5859,6 +5920,37 @@ Nelder Mead
 שתאפשר לנו למצוא מינימום לוקאלי ללא שימוש בנגזרות.
 \end_layout
 
+\begin_layout Standard
+מימוש השיטות נמצא בנתיב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/minimization
+\end_layout
+
 \begin_layout Subsubsection
 מימוש
 \family roman
@@ -5888,10 +5980,6 @@ Nelder Mead
 \color inherit
 \lang english
 Penalty Method
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Subsubsection
