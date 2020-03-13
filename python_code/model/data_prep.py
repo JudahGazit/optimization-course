@@ -27,9 +27,6 @@ def load_data(pickup_grid='87G8Q279+', dropoff_grid='87G8Q225+', select_cols=SEL
 def remove_nulls_from_columns(df):
     df = df.copy()
     df = df.drop(['pickup_datetime', 'DATE'], axis=1)
-    df.humidity = df.humidity.fillna(df.humidity.quantile())
-    df.pressure = df.pressure.fillna(df.pressure.quantile())
-    df.weather_description = df.weather_description.astype('category').cat.codes
     return df
 
 
