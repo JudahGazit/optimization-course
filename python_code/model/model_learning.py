@@ -14,9 +14,12 @@ def print_score(m, x_train, y_train, x_test, y_test):
     rows.append(['l1 - std', l1_diff(m.predict(x_train), y_train).std(), l1_diff(m.predict(x_test), y_test).std()])
     rows.append(['l1 - quantile', l1_diff(m.predict(x_train), y_train).quantile(),
                  l1_diff(m.predict(x_test), y_test).quantile()])
+    rows.append(['l1 - 95% percentile', l1_diff(m.predict(x_train), y_train).quantile(0.95),
+                 l1_diff(m.predict(x_test), y_test).quantile(0.95)])
     rows.append(['l1 - min', l1_diff(m.predict(x_train), y_train).min(), l1_diff(m.predict(x_test), y_test).min()])
     rows.append(['l1 - max', l1_diff(m.predict(x_train), y_train).max(), l1_diff(m.predict(x_test), y_test).max()])
     rows.append(['r2', m.score(x_train, y_train), m.score(x_test, y_test)])
+    rows.append(['r2 - oob', m.oob_score_, None])
     df = pd.DataFrame(rows, columns=['name', 'train', 'test'])
     display(df)
 
