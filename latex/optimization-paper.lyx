@@ -2922,20 +2922,9 @@ grid
 \color inherit
 \lang english
 raw_data_stats.py
-\lang hebrew
-
-\begin_inset Newline newline
-\end_inset
-
-התרשים הנ
-\begin_inset Quotes erd
-\end_inset
-
-ל הוא היסטוגרמת זמני הנסיעה )בשניות(.
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Graphics
 	filename trip_time_hist.png
 	width 30page%
@@ -2943,72 +2932,6 @@ raw_data_stats.py
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-התרשים הנ
-\begin_inset Quotes erd
-\end_inset
-
-ל הוא היסטוגרמת אורכי הנסיעה )במיילים(, עבור אורכי נסיעה הקטנים מ
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-2
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\numeric off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-מייל.
-\end_layout
-
-\begin_layout Standard
-\align center
 \begin_inset Graphics
 	filename trip_distance_hist.png
 	width 30page%
@@ -3019,69 +2942,6 @@ raw_data_stats.py
 \end_layout
 
 \begin_layout Standard
-התרשים הנ
-\begin_inset Quotes erd
-\end_inset
-
-ל הוא היסטוגרמת שעות הנסיעה ביום )כאשר ציר
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-\lang english
-X
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang hebrew
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-הוא שניות מתחילת היום(
-\end_layout
-
-\begin_layout Standard
-\align center
 \begin_inset Graphics
 	filename time_of_day_hist.png
 	width 30page%
@@ -3089,18 +2949,6 @@ X
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-התרשים הנ
-\begin_inset Quotes erd
-\end_inset
-
-ל הוא היסטוגרמת מהירות הנסיעה )אורך הנסיעה חלקי משך הנסיעה(
-\end_layout
-
-\begin_layout Standard
-\align center
 \begin_inset Graphics
 	filename trip_speed_hist.png
 	width 30page%
@@ -3877,6 +3725,80 @@ python_code/model/features/weather.py
 החיבור הוא טריוויאלי, המורכבות היחידה היא שינוי איזור הזמן.
 \end_layout
 
+\begin_layout Standard
+על גבי החומרים השעתיים, אנחנו מחשבים גם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עמודות - הנתון המינימלי, המקסימלי והממוצע לאותו היום.
+ הפונקציה הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל מעשירה את המידע השעתי בנתונים הללו:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename weather-enrich-means.png
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 חגים לאומיים בארצות הברית
 \end_layout
@@ -4049,7 +3971,7 @@ Kaggle
 \align center
 \begin_inset Graphics
 	filename holidays-demo.png
-	width 30page%
+	width 20page%
 
 \end_inset
 
@@ -4581,9 +4503,13 @@ python_code/model/data_prep.py
 \end_layout
 
 \begin_layout Subsubsection
-רקע -
+אימון
+\end_layout
+
+\begin_layout Standard
+המודל הנבחר לצורך ביצוע המשימה הוא
 \family roman
-\series bold
+\series medium
 \shape up
 \size normal
 \emph off
@@ -4608,19 +4534,1303 @@ python_code/model/data_prep.py
 \noun default
 \color inherit
 \lang english
-Random Forests
+Random Forest Regressor
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וזאת מפאת פשוטו בניתוח בעיות מהסוג הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל.
+ כיוון שליבת הפרויקט איננה במימוש המודל )אלא בביצוע מינימיזציה עליו בסופו
+ של התהליך(, לא אכביר בכל הניסיונות השונים בהרצת המודל עד להגעה לתוצאות
+ המוצגות כאן.
+ הרצת המודל מתבצעת בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/model_learning.py
 \end_layout
 
-\begin_layout Subsubsection
-אימון
+\begin_layout Standard
+אנחנו מאמנים את המודל על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+%
+\numeric on
+80
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ מהמידע, עם 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+40
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עצים שונים, שכל אחד מאומן על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+50%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מהפיצ'רים שלנו.
+ הגבלתי את מספר הדגימות בכל עלה בעץ ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+רשימת ה
+\lang english
+Features
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המלאה שלנו בשלב זה:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename features2.png
+	width 30page%
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename features1.png
+	width 30page%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 מדידת איכות המודל
 \end_layout
 
-\begin_layout Subsection
-סיכום הפרק
+\begin_layout Standard
+על תוצאת המודל הרצנו את הבדיקות הבאות )אל מול המידע עליו התאמנו ואל מול
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+20%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ מהחומרים שלא נכנסו לאימון(:
+\end_layout
+
+\begin_layout Itemize
+הפרש זמנים בין הזמן האמיתי לזמן המנוחש ע
+\begin_inset Quotes erd
+\end_inset
+
+י המודל: 
+\begin_inset Formula $\left|T_{real}-T_{predict}\right|$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+תוחלת ההפרשים
+\end_layout
+
+\begin_layout Itemize
+סטיית התקן של ההפרשים
+\end_layout
+
+\begin_layout Itemize
+חציון ההפרשים
+\end_layout
+
+\begin_layout Itemize
+אחוזון
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+95
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של ההפרשים
+\end_layout
+
+\begin_layout Itemize
+הפרש מינימלי והפרש מקסימלי
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+ציון 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ למתאם המודל על התוצאות האמיתיות.
+ ציון זה מופיע לנו על ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+train
+\lang hebrew
+, ה
+\lang english
+test
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+OOB
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)
+\lang english
+out of bag score
+\lang hebrew
+, באופן כללי חישוב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פרדיקציה על החומרים שלא נכנסו בתהליך הרנדומלי שבוחר חומרים לאימון(
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename random-forests-scores.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+התוצאות שקיבלנו אינן מושלמות )למשל ה 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ על חומרי ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+test
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נמוך ממה שהיינו רוצים(, אבל ניתן לראות שאחוזון
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+95%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של ההפרשים עומד על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+274
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שניות )בערך 
+\begin_inset Formula $4.5$
+\end_inset
+
+ דקות(, שזה לחלוטין לא רע בהתחשב בכמות הפיצ'רים הקטנה שבה השתמשנו, וזה מספיק
+ כדי שנוכל להתקדם הלאה.
+\end_layout
+
+\begin_layout Standard
+מן הסתם, עבודה מאומצת שמטרתה המוצהרת היא לייצר מודל טוב יותר הייתה מניבה
+ תוצאות מוצלחות יותר, אך כיוון שמדדי המודל אינם ליבת העבודה, אני מרשה לעצמי
+ לעצור במצב הזה.
+\end_layout
+
+\begin_layout Standard
+התרשים הבא מתאר את זמן הנסיעה המנוחש )בהפרשים של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+100
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שניות( על פני כל שעות היום בתאריך
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+15/1/2013
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+ניתן לראות מהתרשים כמה דברים מעניינים:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename predict-noise.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+המודל מצליח לזהות את התבנית של זמני עומס ושפל, באופן דומה לאופן שבו הגיוני
+ לחשוב עליהם )בלילה - אין עומס, וישנם שני גלי עומס, בבוקר ולקראת ערב(
+\end_layout
+
+\begin_layout Enumerate
+הפונקציה הנוצרת איננה רציפה, ויש בה הרבה מאוד 
+\begin_inset Quotes eld
+\end_inset
+
+רעשים
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+מינימיזציה על פונקציה רועשת כזו תביא אותנו למינימום לוקאלי מאוד ולא נכון.
+\end_layout
+
+\begin_layout Subsubsection
+רציפות הפונקציה הנוצרת
+\end_layout
+
+\begin_layout Standard
+על מנת שנוכל לבצע מינימיזציה מוצלחת על הפונקצייה הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל, נרצה לנקות אותה מרעשים ולהפוך אותה לרציפה.
+\end_layout
+
+\begin_layout Standard
+לשם כך נעזר בטענה הבאה:
+\end_layout
+
+\begin_layout Claim
+תהי 
+\begin_inset Formula $f:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ פונקציה אינטגרבילית )רימן( בתחום 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ .
+ יהי 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ , הפונקציה 
+\begin_inset Formula $g_{\epsilon}(x)=\int_{x-\epsilon}^{x+\epsilon}f(x)dx$
+\end_inset
+
+ רציפה לכל 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Proof
+יהי 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ .
+ נשים לב שמתקיים:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+\left|g_{\epsilon}(x)-g_{\epsilon}(x+\delta)\right| & =\left|\int_{x-\epsilon}^{x+\epsilon}f(x)dx-\int_{x-\epsilon+\delta}^{x+\epsilon+\delta}f(x)dx\right|\\
+ & =\left|\int_{x+\epsilon}^{x+\epsilon+\delta}f(x)dx-\int_{x-\epsilon}^{x-\epsilon+\delta}f(x)dx\right|
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+היות והפונקציה 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ אינטגרבילית בתחום, היא גם חסומה בו.
+ לכן ניתן להניח כי 
+\begin_inset Formula $\left|f(x)\right|\leq M$
+\end_inset
+
+, ולכן:
+\begin_inset Formula 
+\begin{align*}
+\left|\int_{x+\epsilon}^{x+\epsilon+\delta}f(x)dx-\int_{x-\epsilon}^{x-\epsilon+\delta}f(x)dx\right| & \leq\int_{x+\epsilon}^{x+\epsilon+\delta}Mdx+\int_{x-\epsilon}^{x-\epsilon+\delta}Mdx\\
+ & =2\cdot\delta\cdot M
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+מכלל הסנדוויץ', בגלל ש 
+\begin_inset Formula $2\cdot\delta\cdot M\overset{\delta\rightarrow0}{\longrightarrow}0$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $\left|g_{\epsilon}(x)-g_{\epsilon}(x+\delta)\right|\overset{\delta\rightarrow0}{\longrightarrow}0$
+\end_inset
+
+ כלומר 
+\begin_inset Formula $g_{e}(x+\delta)\overset{\delta\rightarrow0}{\longrightarrow}g_{\epsilon}(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+לכן 
+\begin_inset Formula $g_{\epsilon}(t)\overset{t\rightarrow x}{\longrightarrow}g_{\epsilon}(x)$
+\end_inset
+
+ לכל 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+, משמע 
+\begin_inset Formula $g_{\epsilon}$
+\end_inset
+
+ רציפה.
+\end_layout
+
+\begin_layout Standard
+לפי הטענה, מתוך הנחה שפונקציית ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+predict
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא אינטגרבילית בתחום הערכים של יום מסוים, נוכל 
+\begin_inset Quotes eld
+\end_inset
+
+להחליק
+\begin_inset Quotes erd
+\end_inset
+
+ אותה ע
+\begin_inset Quotes erd
+\end_inset
+
+י קירוב האינטגרל הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל לכל נקודה.
+\end_layout
+
+\begin_layout Standard
+בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/model/pretty_predict.py
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אנחנו מיישמים פונקציית פרדיקציה אלטרנטיבית שמחשבת את ממוצע הפרדיקציות בסביבת
+ הנקודה:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pretty-predict.png.png
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הפונקציה מקבלת את המידע והמודל שיצרנו, יחד עם שורה ספציפית עליה אנחנו רוצים
+ לבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+predict
+\lang hebrew
+, היא מייצרת שורות בטווח ובכמות המוגדרות כפרמטר )ברירת המחדל כאן היא בטווח
+ של 
+\begin_inset Formula $\pm1000_{sec}$
+\end_inset
+
+ לייצר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+21
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+דגימות(, ומחשבת את התוחלת של ה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+predict
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ עליהן.
+\end_layout
+
+\begin_layout Standard
+כאשר נצייר גרף של אותו היום המתואר לעיל בשימוש בפונקציה החדשה, נקבל:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pretty-predict-graph.png
+	width 30page%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
