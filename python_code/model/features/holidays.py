@@ -9,5 +9,5 @@ def add_holidays(df):
     usa_holidays.columns = [c.upper() for c in usa_holidays.columns]
     usa_holidays = usa_holidays[['DATE', 'HOLIDAY']]
     df = df.merge(usa_holidays, on=['DATE'], how='left')
-    df.HOLIDAY = df.HOLIDAY.apply(lambda v: 1 if v else 0)
+    df.HOLIDAY = df.HOLIDAY.apply(lambda v: 1 if isinstance(v, str) else 0)
     return df
