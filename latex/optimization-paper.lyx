@@ -1463,7 +1463,7 @@ downhill simplex method
 (.
  לאחר יישום השיטות הבסיסיות, ננסה לבצע היוריסטיקות שיאפשרו לנו למצוא מינימום
  גלובלי ולא לוקאלי.
-\begin_inset Newpage pagebreak
+\begin_inset Newline newline
 \end_inset
 
 
@@ -3097,7 +3097,7 @@ dataset
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -5383,7 +5383,7 @@ test
 \noun default
 \color inherit
 \lang english
-15/1/2013
+4/4/2013
 \lang hebrew
 :
 \end_layout
@@ -5831,6 +5831,30 @@ predict
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+סיכום הפרק
+\end_layout
+
+\begin_layout Enumerate
+הצלחנו לייצר מודל שנותן ניבוי מוצלח של הבעיה שאותה אנחנו מנסים לפתור.
+\begin_inset Newline newline
+\end_inset
+
+המודל רחוק מלהיות אידיאלי אך מדגים את הבעיה היטב.
+\end_layout
+
+\begin_layout Enumerate
+הצלחנו לייצר מתוך המודל פונקציה שתאפשר לנו לבצע מינימיזציה, זאת בעזרת 
+\begin_inset Quotes eld
+\end_inset
+
+החלקה
+\begin_inset Quotes erd
+\end_inset
+
+ של הפונקציה כפי שיוצאת מהמודל עצמו.
 \end_layout
 
 \begin_layout Section
