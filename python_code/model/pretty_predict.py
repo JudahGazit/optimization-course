@@ -1,20 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from IPython.core.display import display
 from cachey import Cache
 
 
-def plot_day_with_predict_func(df, model, predict, random_state):
-    gen = df.sample(n=1, random_state=random_state)
-    display(gen)
-    gen = gen.values[0]
+def plot_day_with_predict_func(regressor):
     x, y = [], []
     for i in range(0, 60 * 60 * 24, 100):
         x.append(i / 60 / 60)
-        y.append(predict(df, model, gen, i))
+        y.append(regressor(i))
     plot(x, y)
-    return gen
 
 
 def plot(x, y):
@@ -29,27 +24,26 @@ def plot(x, y):
     plt.savefig("mygraph.png")
 
 
-def predict(df, model, row, time_of_day=None, buffer=1000, buffer_samples=21):
-    columns = df.columns
-    time_of_day_index = list(columns).index('time_of_day')
+def predict(model, row, time_of_day=None, buffer=1000, buffer_samples=21):
     rows = []
-    time_of_day = time_of_day or row[time_of_day_index]
+    time_of_day = time_of_day or row['time_of_day']
     for i in np.linspace(max(time_of_day - buffer, 0), min(time_of_day + buffer, 60 * 60 * 24), buffer_samples):
         row = row.copy()
-        row[time_of_day_index] = i
+        row['time_of_day'] = i
         rows.append(row)
-    rows = pd.DataFrame(rows, columns=columns)
-    preds = model.predict(rows)
+    preds = model.predict(pd.DataFrame(rows))
     return preds.mean()
 
 
-def model_predict(df, model, row, time_of_day=None):
-    columns = df.columns
-    time_of_day_index = list(columns).index('time_of_day')
-    row = row.copy()
-    row[time_of_day_index] = time_of_day or row[time_of_day_index]
-    pred = model.predict(pd.DataFrame([row], columns=columns))
+def model_predict(model, row, time_of_day=None):
+    row['time_of_day'] = time_of_day or row.get('time_of_day')
+    pred = model.predict(pd.DataFrame([row]))
     return pred[0]
+
+
+def get_regressor(model, x, predict):
+    return lambda t: predict(model, x, t)
+
 
 c = Cache(1e9)
 predict = c.memoize(predict)
