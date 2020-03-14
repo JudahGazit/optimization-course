@@ -8364,7 +8364,36 @@ Golden Scaling
 \end_layout
 
 \begin_layout Enumerate
-שיטות נוספות להבאת מידע רלוונטי לבעיה
+שיטות נוספות להבאת מידע רלוונטי לבעיה, והרצת ניסויים על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Dataset
+\lang hebrew
+ים אחרים עד שהחלטתי להשתמש במידע המוצג כאן.
 \end_layout
 
 \end_body
