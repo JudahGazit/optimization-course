@@ -1,5 +1,3 @@
-import random
-
 import numpy as np
 
 ALPHA, GAMA, RO, SIGMA = 1., 2., 0.5, 0.5
@@ -44,7 +42,6 @@ def nelder_mead_minimize(f, x0, error=1e-3, iteration_limit=100):
     xinit = [x0]
     for i in range(n):
         x = x0.copy()
-        r = random.uniform(- 10 * error, 10 * error)
-        x[i] = float(x[i]) + r
+        x[i] = float(x[i]) + 1
         xinit.append(x)
     return nelder_mead_minimize_(f, n, xinit, 0, error, iteration_limit)

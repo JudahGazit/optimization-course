@@ -5838,13 +5838,36 @@ Regressor
 
 \end_layout
 
+\begin_layout Standard
+את 
+\begin_inset Formula $R_{\bar{x}}$
+\end_inset
+
+ ניצור בעזרת הפונקציה הבאה )שמקבלת את המודל שלנו ואת 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ ומחזירה לנו פונקציה חדשה(
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename regressor-wrapper.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 מימוש
 \end_layout
 
 \begin_layout Standard
 כיוון והפונקציה 
-\begin_inset Formula $R$
+\begin_inset Formula $R_{\bar{x}}$
 \end_inset
 
  שלנו היא רציפה אך הנגזרת שלה איננה ידועה, המימוש שלנו יתבסס על שילוב בין
@@ -6021,6 +6044,159 @@ python_code/minimization
 Penalty Method
 \end_layout
 
+\begin_layout Standard
+השיטה אומרת את הדבר הבא.
+ תהי פונקציה 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ שלה אנחנו רוצים למצוא מינימום תחת האילוצים 
+\begin_inset Formula $c_{i}(x)\leq0\ \ \forall i\in I$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+אזי נוכל למצוא מינימום לפונקציה ללא אילוצים: 
+\begin_inset Formula 
+\[
+P_{k}(x)=f(x)+\sigma_{k}\sum_{i\in I}\max(0,c_{i}(x))^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+וכאשר 
+\begin_inset Formula $\sigma_{k}\overset{k\rightarrow\infty}{\longrightarrow}\infty$
+\end_inset
+
+ , יתקיים 
+\begin_inset Formula $\min P_{k}(x)\overset{k\rightarrow\infty}{\longrightarrow}\min f(x)$
+\end_inset
+
+ כאשר הכוונה היא שהמינימום של הפונקציה 
+\begin_inset Formula $P$
+\end_inset
+
+ ללא אילוצים ישאף למינימום תחת האילוצים של 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+במקרה שלנו, לפונקציה 
+\begin_inset Formula $R_{\bar{x}}(t)$
+\end_inset
+
+ ישנם שני אילוצים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c(t)=\left(\begin{array}{c}
+t-t_{max}\\
+t_{min}-t
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ולכן:
+\begin_inset Formula 
+\[
+P_{k}(t)=R_{\bar{x}}(t)+\sigma_{k}\cdot\max(0,t-t_{max})^{2}+\sigma_{k}\cdot\max(0,t_{min}-t)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הפונקציה הזו עוטפת את 
+\begin_inset Formula $R_{\bar{x}}$
+\end_inset
+
+ ומחזירה את 
+\begin_inset Formula $P_{k}(t)$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename penalty-method.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, בכל איטרציה נגדיל את 
+\begin_inset Formula $\sigma_{k}$
+\end_inset
+
+ פי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\numeric off
+, ונמצא מינימום לפונקציה הזו.
+ נעצור כאשר ההפרש בין המינימום שמצאנו לקודם קטן מטווח שגיאה שנגדיר, או כשנגיע
+ לרף האיטרציות שנגדיר.
+ הפונקציה הבאה מיישמת את התהליך:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename penalty-minimum-finding.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 מימוש
 \family roman
@@ -6052,8 +6228,1545 @@ Penalty Method
 Nelder Mead
 \end_layout
 
+\begin_layout Standard
+אלגוריתם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Nelder Mead
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+או בשמו האחר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Downhill Simplex
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ הוא אלגוריתם שנלמד בקצרה בכיתה.
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Newline newline
+\end_inset
+
+הוא אלגוריתם למציאת מינימום לפונקציה רב מימדית ללא שימוש בנגזרות.
+\end_layout
+
+\begin_layout Standard
+הסיבה שהאלגוריתם הזה נבחר לעבודה הוא בגלל הפופולאריות שלו וההתכנסות המהירה
+ שלו.
+ היותו מיושם בהרבה מאוד ספריות בפייתון אפשרה לי לבדוק את נכונות המימוש בהשוואה
+ מולם.
+\end_layout
+
+\begin_layout Standard
+האלגוריתם עובד כך:
+\end_layout
+
+\begin_layout Standard
+תהי 
+\begin_inset Formula $f:\mathbb{R}^{n}\rightarrow\mathbb{R}$
+\end_inset
+
+.
+ בכל רגע נתון הוא מחזיק 
+\begin_inset Formula $x_{1},...,x_{n+1}$
+\end_inset
+
+ נקודות.
+ יהיו 
+\begin_inset Formula $\alpha>0,\ \gamma>1,\ 0<\rho<0.5,\ \sigma<1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+מיין את הנקודות לפי 
+\begin_inset Formula $f$
+\end_inset
+
+ : 
+\begin_inset Formula $f(x_{1})\leq...\leq f(x_{n+1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+בדוק האם תנאי העצירה מתקיים
+\end_layout
+
+\begin_layout Enumerate
+חשב את 
+\begin_inset Formula $x_{0}=\frac{1}{n+1}\sum_{i=1}^{n+1}x_{i}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+שלב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Reflection
+\series default
+\lang hebrew
+: חשב 
+\begin_inset Formula $x_{r}=x_{0}+\alpha(x_{0}+x_{n+1})$
+\end_inset
+
+.
+ במידה ומתקיים 
+\begin_inset Formula $f(x_{1})\leq f(x_{r})\leq f(x_{n})$
+\end_inset
+
+, החלף 
+\begin_inset Formula $x_{n+1}=x_{r}$
+\end_inset
+
+ וחזור ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+.
+\end_layout
+
+\begin_layout Enumerate
+שלב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Expansion
+\series default
+\lang hebrew
+: אם 
+\begin_inset Formula $f(x_{r})<f(x_{1})$
+\end_inset
+
+ אז חשב 
+\begin_inset Formula $x_{e}=x_{0}+\gamma(x_{r}-x_{0})$
+\end_inset
+
+.
+ אם 
+\begin_inset Formula $f(x_{e})<f(x_{r})$
+\end_inset
+
+ אז החלף 
+\begin_inset Formula $x_{n+1}=x_{e}$
+\end_inset
+
+ וחזור ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+, אחרת 
+\begin_inset Formula $x_{n+1}=x_{r}$
+\end_inset
+
+ וחזור ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Enumerate
+שלב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Contraction
+\series default
+\lang hebrew
+: חשב 
+\begin_inset Formula $x_{c}=x_{0}+\rho(x_{n+1}-x_{0})$
+\end_inset
+
+ .
+ אם 
+\begin_inset Formula $f(x_{c})<f(x_{n+1})$
+\end_inset
+
+ אז החלף 
+\begin_inset Formula $x_{n+1}=x_{c}$
+\end_inset
+
+ וחזור ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Enumerate
+שלב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Shrink
+\series default
+\lang hebrew
+: החלף את הנקודות: 
+\begin_inset Formula $x_{i}=x_{1}+\sigma(x_{i}-x_{1})\ \ \forall i>1$
+\end_inset
+
+ , וחזור לשלב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+כדי לייצר את 
+\begin_inset Formula $x_{1},...,x_{n+1}$
+\end_inset
+
+ ההתחלתיים, ניקח את נקודת ההתחלה 
+\begin_inset Formula $x$
+\end_inset
+
+ בשילוב עם ווקטורי היחידה: 
+\begin_inset Formula 
+\[
+\forall1\leq i\leq n:x_{i}=x+e_{i},\ \ x_{n+1}=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המימוש של התהליך הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל מופיע בקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+python_code/minimization/nelder_mead.py
+\lang hebrew
+.
+\end_layout
+
 \begin_layout Subsection
 הדגמת שימוש
+\end_layout
+
+\begin_layout Standard
+התרשים הבא מתאר את זמן הנסיעה המנוחש ביום רנדומלי.
+ במהלך השנה.
+ הקובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+app.py
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מדפיס תחילה את התרשים הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל, ולאחר מכן מוצא מינימום בקטע שבין השעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+12
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename travel-time-minimization.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+את מינימום זמן הנסיעה בטווח 
+\begin_inset Formula $t\in[10\cdot60\cdot60,12\cdot60\cdot60]$
+\end_inset
+
+, נקודת ההתחלה ממנה התחלנו לחפש הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שניות מתחילת היום, ואנחנו מבצעים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+איטרציות על 
+\begin_inset Formula $P_{k}(t)$
+\end_inset
+
+ )כלומר, מגדילים בכל פעם את 
+\begin_inset Formula $\sigma_{k}$
+\end_inset
+
+ פי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\numeric off
+(
+\end_layout
+
+\begin_layout Standard
+המינימום שנמצא הוא בשעה 
+\begin_inset Formula $10.31111=10^{\underline{19}}$
+\end_inset
+
+, שם זמן הנסיעה עומד על 
+\begin_inset Formula $433.6610$
+\end_inset
+
+ שניות.
+ מהתבוננות בתרשים ניתן לראות שזה באמת מינימום לוקאלי בטווח הזמנים, אך קיים
+ מינימום גלובאלי בדיוק בקצה האיזור )בשעה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+12
+\numeric off
+(.
+\end_layout
+
+\begin_layout Standard
+ננסה לראות כיצד פרמטרים שונים להרצה יתנו תוצאות אחרות.
+ כאשר שינינו את נקודת ההתחלה להיות בשעה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+13
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)אינטואיטיבית - אחרי הטווח שאנחנו מנסים לאתר בו, ולא לפניו( - קיבלנו מינימום
+ בשעה 
+\begin_inset Formula $11.9984\sim12^{\underline{00}}$
+\end_inset
+
+, שם התקבל זמן נסיעה של 
+\begin_inset Formula $420.3702$
+\end_inset
+
+ שניות.
+\end_layout
+
+\begin_layout Standard
+נשים לב שלמרות שהמינימום האמיתי נמצא ב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+12
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בדיוק,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Penalty Method
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתקשה להגיע לתשובה הנכונה בגלל הקרבה של הערך לפונקציית ה
+\begin_inset Quotes erd
+\end_inset
+
+ענישה
+\begin_inset Quotes erd
+\end_inset
+
+ שלנו.
+ אם נצייר את 
+\begin_inset Formula $P_{1}(t)$
+\end_inset
+
+, היא נראית כך:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename minimize-penalty-graph.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ניתן להתגבר על כך ע
+\begin_inset Quotes erd
+\end_inset
+
+י זה שנבצע בדיקה יזומה על הקצוות של הטווח ונשווה למינימום שמצאנו.
+\end_layout
+
+\begin_layout Standard
+נבצע את הניסוי הבא:
+\end_layout
+
+\begin_layout Itemize
+נבחר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ תאריכים רנדומליים
+\end_layout
+
+\begin_layout Itemize
+בעבור כל אחד - נחפש את המינימום בין השעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+12
+\numeric off
+ בשיטת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Nelder Mead
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פעמיים - פעם אחת עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בתור נקודת ההתחלה, ופעם שנייה עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ השעה 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+13
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בתור נקודת ההתחלה.
+\end_layout
+
+\begin_layout Itemize
+נריץ מינימיזציה נאיבית על הטווח - נרות על טווח השעות בין
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ל
+\numeric on
+12
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ בקפיצות של 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+100
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שניות בכל פעם, וניקח בסופו של דבר את הטווח שהחזיר ערך מינימלי בפונקציה.
+ השיטה הזו מאוד לא יעילה אך תחזיר את המינימום הגלובלי בטווח הנבחר עם שגיאה
+ של עד 
+\begin_inset Formula $50$
+\end_inset
+
+ שניות לכל היותר.
 \end_layout
 
 \begin_layout Section

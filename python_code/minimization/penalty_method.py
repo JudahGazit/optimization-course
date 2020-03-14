@@ -27,6 +27,7 @@ def minimize_penalty_in_boundry(regressor, t0, tmin, tmax, factor_iterations, mi
         res_value = penalty(res_, 10 ** counter)
         res = [res_value, res_[0]]
         counter += 1
+    res = min([res, [regressor(tmin), tmin], [regressor(tmax), tmax]])
     return res
 
 
