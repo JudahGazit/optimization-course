@@ -5791,6 +5791,45 @@ Regressor
 \begin_inset Formula 
 \begin{align*}
 \min R(t,\bar{x})\\
+\text{S.T.} & \ \ \ \ t\in[t_{min},t_{max}]\\
+ & \ \ \ \ \bar{x}=\bar{x}_{today}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+העובדה שהפיצ'ר היחידי שמשתנה במהלך היום הוא 
+\begin_inset Formula $t$
+\end_inset
+
+ חשוב מאוד כי אנחנו למעשה נקבע את 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ לחלוטין לאותו היום ונבצע מינימיזציה עם אילוצי אי שיוויון על 
+\begin_inset Formula $t$
+\end_inset
+
+ בלבד.
+ למעשה זה שקול ליצירת פונקציה 
+\begin_inset Formula $R_{\bar{x}}:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ שמקבלת זמן 
+\begin_inset Formula $t$
+\end_inset
+
+ ביום ומחזירה את זמן הנסיעה הצפוי.
+ במקרה הזה בעיית האופטימיזציה שלנו ממוקדת עוד יותר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\min R_{\bar{x}}(t)\\
 \text{S.T.} & \ \ \ \ t\in[t_{min},t_{max}]
 \end{align*}
 
