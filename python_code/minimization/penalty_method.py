@@ -18,7 +18,7 @@ def minimize_penalty_in_boundry(regressor, t0, tmin, tmax, factor_iterations, er
     counter = 0
     while (res is None or last_res is None or last_res[0] - res[0] > error) and counter < factor_iterations:
         last_res = res
-        res_ = nelder_mead_minimize(f=lambda t: regressor(t, tmin, tmax, 10 ** counter),
+        res_ = nelder_mead_minimize(f=lambda t: penalty_predict(regressor, t, tmin, tmax, 10 ** counter),
                                     x0=[res[1] if res else t0])
         res_value = penalty_predict(regressor, res_, tmin, tmax, 10 ** counter)
         res = [res_value, res_[0], ]

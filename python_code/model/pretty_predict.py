@@ -40,10 +40,10 @@ def model_predict(model, row, time_of_day=None):
     pred = model.predict(pd.DataFrame([row]))
     return pred[0]
 
+c = Cache(1e9)
+
 
 def get_regressor(model, x, predict):
-    return lambda t: predict(model, x, t)
-
-
-c = Cache(1e9)
-predict = c.memoize(predict)
+    regressor = lambda t: predict(model, x, t)
+    regressor = c.memoize(regressor)  # In order to speed up the evaluation - Cache is used on the regressor
+    return regressor
