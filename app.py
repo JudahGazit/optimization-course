@@ -1,6 +1,7 @@
 import pandas as pd
 from IPython.core.display import display
 
+from python_code.minimization.binary_search import binary_minimize
 from python_code.minimization.naive_minimum import naive_minimize
 from python_code.minimization.nelder_mead import nelder_mead_minimize
 from python_code.minimization.penalty_method import minimize_penalty_in_boundry
@@ -18,11 +19,13 @@ def experiment(df, model):
         res1 = minimize_penalty_in_boundry(regressor, 0, 10 * 60 * 60, 12 * 60 * 60, 10, nelder_mead_minimize)
         res2 = minimize_penalty_in_boundry(regressor, 13 * 60 * 60, 10 * 60 * 60, 12 * 60 * 60, 10,
                                            nelder_mead_minimize)
-        res3 = naive_minimize(regressor, 10 * 60 * 60, 12 * 60 * 60)
+        res3 = binary_minimize(regressor, 10 * 60 * 60, 12 * 60 * 60)
+        res4 = naive_minimize(regressor, 10 * 60 * 60, 12 * 60 * 60)
         log = {'date': f'{row["pickup_datetimeday"]} / {row["pickup_datetimemonth"]}',
                'nelder_mead_0_predict': res1[0], 'nelder_mead_0_starttime': res1[1] / 60 / 60,
                'nelder_mead_13_predict': res2[0], 'nelder_mead_13_starttime': res2[1] / 60 / 60,
-               'naive_method_predict': res3[0], 'naive_method_starttime': res3[1] / 60 / 60,
+               'binary_search_predict': res3[0], 'binary_search_starttime': res3[1] / 60 / 60,
+               'naive_method_predict': res4[0], 'naive_method_starttime': res4[1] / 60 / 60,
                }
         logs.append(log)
         display(log)
