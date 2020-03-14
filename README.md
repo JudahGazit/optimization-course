@@ -8,7 +8,7 @@ Project Structure:
 ├── requirements.txt // standard python requirements file<br>
 ├── experiment_results.csv // result of the experiment the python file is running<br>
 ├── data <br>
-│   └── // contains all the data necessary for running <br>
+│   └── // contains the data necessary for running <br>
 ├── latex <br>
 │   ├── // contains the latex code creating the pdf file <br>
 ├── python_code <br>
@@ -16,7 +16,6 @@ Project Structure:
 
 
 The project contains a small sample of the original large dataset.
-
 in order to recalculate the grid CSVs:
 1. download data original separately (3.7 GB):
 https://archive.org/download/nycTaxiTripData2013/trip_data.7z
