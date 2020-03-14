@@ -7769,8 +7769,366 @@ Nelder Mead
  שניות לכל היותר.
 \end_layout
 
+\begin_layout Standard
+מצורפות תוצאות הניסוי.
+ בכחול - המינימום ש
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Nelder Mean
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מצא שהוא גם המינימום הגלובלי לפי השיטה ה
+\begin_inset Quotes erd
+\end_inset
+
+נאיבית
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename expirament_results.png
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 סיכום
+\end_layout
+
+\begin_layout Standard
+בסופו של דבר, הפתרון המוצג כאן בעבודה הוא פתרון לבעיה שלא למדנו במהלך השיעורים
+ בקורס - מינימיזציה של פונקציות חסרות נגזרת עם אילוצים.
+ הפתרון אליו הגעתי בסופו של דבר יצא פשוט ומוצלח.
+\end_layout
+
+\begin_layout Standard
+כשחיפשתי בעיה עבור הפרויקט, רציתי מאוד לשלב תהליך למידה מקדים ועליו לבצע
+ את המינימיזציה.
+ כפי שניתן לראות, זו איננה בעיה פשוטה.
+ בשלב מתקדם של הפרויקט הבנתי שהפונקציה שהמודל שלי מייצר לא מאפשרת לי למצוא
+ מינימום אמיתי בגלל שהיא מאוד 
+\begin_inset Quotes eld
+\end_inset
+
+רועשת
+\begin_inset Quotes erd
+\end_inset
+
+, והייתי צריך לחשוב על טריק כדי להחליק אותה.
+ התהליך המוצג כאן בעבודה הוא התוצאה של החשיבה הזו.
+ כמובן שהוא איננו בא בחינם, היות וכל קריאה לפונקציה גורמת לעיבוד של פי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+20
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יותר חומרים )היות ואני לוקח עוד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+20
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+דגימות בסביבת הנקודה כדי לחשב את הממוצע בניהן(.
+\end_layout
+
+\begin_layout Standard
+שיטת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Penalty
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא שיטה שמאוד אהבתי גם במהלך הקורס, היות והיא נראית כמו פתרון 
+\begin_inset Quotes eld
+\end_inset
+
+עוקף
+\begin_inset Quotes erd
+\end_inset
+
+ מוצלח מאוד לבעית האילוצים.
+ היות והצלחתי לעשות רדוקציה לבעיה בממימד אחד, יחסית פשוט להתגבר על נושא
+ רגישות הקצוות בתחום, כי יש בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ שניים לבדיקה.
+ כמובן שבפונקציה רב מימדית עם אילוצים מורכבים יותר זה לא עניין כזה פשוט.
+\end_layout
+
+\begin_layout Standard
+במהלך הפרויקט ניסיתי מגוון שיטות רחב עד שהגעתי לשיטת הפתרון כפי שנראתה כאן:
+\end_layout
+
+\begin_layout Enumerate
+החלפת שיטת המינימיזציה ל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Golden Scaling
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ תוך וויתור על 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Penalty Method
+\end_layout
+
+\begin_layout Enumerate
+ניסיונות נוספים בהחלקת הפונקציה
+\end_layout
+
+\begin_layout Enumerate
+מגוון פיצ'רים נוסף אותו ניסיתי לשיפור המודל
+\end_layout
+
+\begin_layout Enumerate
+שיטות נוספות להבאת מידע רלוונטי לבעיה
 \end_layout
 
 \end_body
