@@ -4,23 +4,58 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass heb-article
+\textclass article
 \begin_preamble
-\def\HeblatexEncoding{HE8}
-\def\HeblatexEncodingFile{he8enc}
+%%% Set Hebrew and English fonts
+\setmonofont[Script=Hebrew]{Miriam Mono CLM}
+\newfontfamily{\englishfont}[Ligatures=TeX]{TeX Gyre Pagella}
+%\newfontfamily{\englishfont}[Ligatures=TeX]{Latin Modern Roman}
+% Proper font size in math mode.
+\setmathrm[Ligatures=TeX]{Latin Modern Math}
+
+%%% Another way is to set just the Hebrew fonts:
+%\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+%\newfontfamily\hebrewfonttt[Script=Hebrew]{Miriam Mono CLM}
+%\newfontfamily\hebrewfontsf[Script=Hebrew]{Simple CLM}
+% consider using \usepackage{iffont}
+
+%%% Sets both header and footer
+\fancyhf{} % sets to nothing
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\textup{\thepage}}
+
+\renewcommand*{\refname}{Bibliography}
+
+%%% Some alternative styles
+\ifcsname question\endcsname
+  \theoremstyle{definition}
+  \newtheorem{quesh}[thm]{שאלה}
+  \renewenvironment{question}{\begin{quesh}}{\end{quesh}}
+\else
+\fi
+\ifcsname sol*\endcsname
+  \theoremstyle{remark}
+  \newtheorem*{emphsol*}{פתרון}
+  \renewenvironment{sol*}{\begin{emphsol*}}{\end{emphsol*}}
+\else
+\fi
 \end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
 \maintain_unincluded_children false
 \language hebrew
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
-\font_sans "default" "default"
+\font_roman "default" "David CLM"
+\font_sans "default" "Hadasim CLM"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -28,13 +63,23 @@
 \use_microtype false
 \use_dash_ligatures true
 \graphics default
-\default_output_format default
+\default_output_format pdf4
 \output_sync 0
+\output_sync_macro "\synctex=1"
 \bibtex_command default
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_package amsmath 1
@@ -53,7 +98,7 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \use_minted 0
@@ -75,7 +120,8 @@
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
-\paperpagestyle default
+\paperpagestyle fancy
+\bullet 0 2 5 -1
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -187,6 +233,9 @@
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -714,12 +763,18 @@ Y
 
 בתל אביב מצב הפקקים חמור במיוחד
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 \lang english
-https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -906,7 +961,7 @@ https://www.tomtom.com/en_gb/traffic-index/tel-aviv-traffic#statistics
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename tel-aviv-congestion.png
+	filename /home/rotem/Documents/code/optimization-course/latex/tel-aviv-congestion.png
 	width 30page%
 
 \end_inset
@@ -1011,45 +1066,23 @@ Regressor
 
 \begin_layout Standard
 בסופו של דבר, המידע שבו נעזרתי הוא מידע ציבורי על נסיעות מוניות ברחבי העיר
- ניו יורק 
+ ניו יורק
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-\size normal
-\lang english
-https://archive.org/details/nycTaxiTripData2013
-\end_layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://archive.org/details/nycTaxiTripData2013"
+literal "false"
 
 \end_inset
 
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
+\end_layout
+
+\end_inset
+
 .
  המידע נאסף בשנת
 \family roman
@@ -1184,9 +1217,14 @@ https://archive.org/details/nycTaxiTripData2013
 status open
 
 \begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.kaggle.com/selfishgene/historical-hourly-weather-data"
+literal "false"
 
-\lang english
-https://www.kaggle.com/selfishgene/historical-hourly-weather-data
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1196,9 +1234,14 @@ https://www.kaggle.com/selfishgene/historical-hourly-weather-data
 status open
 
 \begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.kaggle.com/gsnehaa21/federal-holidays-usa-19662020"
+literal "false"
 
-\lang english
-https://www.kaggle.com/gsnehaa21/federal-holidays-usa-19662020
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1539,7 +1582,7 @@ data preperation
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename data-sample.png
+	filename /home/rotem/Documents/code/optimization-course/latex/data-sample.png
 	width 70page%
 
 \end_inset
@@ -1737,7 +1780,7 @@ pickup_longitude pickup_latitude dropoff_longitude dropoff_latitude
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename new-york-spreading.png
+	filename /home/rotem/Documents/code/optimization-course/latex/new-york-spreading.png
 	width 30page%
 
 \end_inset
@@ -1991,7 +2034,7 @@ convert_coordinate_to_grid
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename grid-method.png
+	filename /home/rotem/Documents/code/optimization-course/latex/grid-method.png
 	width 30page%
 
 \end_inset
@@ -2035,7 +2078,7 @@ Dataframe
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename grid-method-apply.png
+	filename /home/rotem/Documents/code/optimization-course/latex/grid-method-apply.png
 	width 30page%
 
 \end_inset
@@ -2238,9 +2281,15 @@ Grids
 \uwave default
 \noun default
 \color inherit
-\lang english
-data/trip_data_grids
-\lang hebrew
+
+\begin_inset CommandInset href
+LatexCommand href
+name "data/trip_data_grids"
+target "https://github.com/JudahGazit/optimization-course/tree/master/data/trip_data_grids"
+literal "false"
+
+\end_inset
+
 .
 \end_layout
 
@@ -2328,7 +2377,16 @@ dataset
 \noun default
 \color inherit
 \lang english
-data/trip_data_sample
+
+\begin_inset CommandInset href
+LatexCommand href
+name "data/trip_data_sample"
+target "https://github.com/JudahGazit/optimization-course/tree/master/data/trip_data_sample"
+literal "false"
+
+\end_inset
+
+
 \lang hebrew
 .
 \begin_inset Newline newline
@@ -2588,7 +2646,7 @@ dataset
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename new-york-grid-spreading.png
+	filename /home/rotem/Documents/code/optimization-course/latex/new-york-grid-spreading.png
 	width 20page%
 
 \end_inset
@@ -2918,20 +2976,12 @@ grid
 \noun default
 \color inherit
 \lang english
-raw_data_stats.py
-\end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename trip_time_hist.png
-	width 30page%
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename trip_distance_hist.png
-	width 30page%
+\begin_inset CommandInset href
+LatexCommand href
+name "raw_data_stats.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/raw_data_stats.py"
+literal "false"
 
 \end_inset
 
@@ -2940,14 +2990,31 @@ raw_data_stats.py
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename time_of_day_hist.png
+	filename /home/rotem/Documents/code/optimization-course/latex/trip_time_hist.png
 	width 30page%
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename trip_speed_hist.png
+	filename /home/rotem/Documents/code/optimization-course/latex/trip_distance_hist.png
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/rotem/Documents/code/optimization-course/latex/time_of_day_hist.png
+	width 30page%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/rotem/Documents/code/optimization-course/latex/trip_speed_hist.png
 	width 30page%
 
 \end_inset
@@ -3136,7 +3203,16 @@ dataset
 \noun default
 \color inherit
 \lang english
-python_code/model
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model"
+literal "false"
+
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -3189,8 +3265,16 @@ python_code/model
 \uwave default
 \noun default
 \color inherit
-\lang english
-data_prep.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "data_prep.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/data_prep.py"
+literal "false"
+
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -3203,7 +3287,6 @@ data_prep.py
 \uwave off
 \noun off
 \color none
-\lang hebrew
  
 \family default
 \series default
@@ -3243,8 +3326,16 @@ data_prep.py
 \uwave default
 \noun default
 \color inherit
-\lang english
-features/
+
+\begin_inset CommandInset href
+LatexCommand href
+name "features/"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/features"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -3424,7 +3515,7 @@ trip_distance
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename data-prep-dates.png
+	filename /home/rotem/Documents/code/optimization-course/latex/data-prep-dates.png
 	width 30page%
 
 \end_inset
@@ -3460,7 +3551,16 @@ trip_distance
 \noun default
 \color inherit
 \lang english
-python_code/model/features/date_parts.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/features/date_parts.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/features/date_parts.py"
+literal "false"
+
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -3499,7 +3599,7 @@ python_code/model/features/date_parts.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename datepart-cde.png
+	filename /home/rotem/Documents/code/optimization-course/latex/datepart-cde.png
 	width 30page%
 
 \end_inset
@@ -3645,14 +3745,14 @@ UTC
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename weather-description-demo.png
+	filename /home/rotem/Documents/code/optimization-course/latex/weather-description-demo.png
 	width 30page%
 
 \end_inset
 
  
 \begin_inset Graphics
-	filename weather-temperature-demo.png
+	filename /home/rotem/Documents/code/optimization-course/latex/weather-temperature-demo.png
 	width 30page%
 
 \end_inset
@@ -3688,7 +3788,16 @@ UTC
 \noun default
 \color inherit
 \lang english
-python_code/model/features/weather.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/features/weather.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/features/weather.py"
+literal "false"
+
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -3788,7 +3897,7 @@ python_code/model/features/weather.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename weather-enrich-means.png
+	filename /home/rotem/Documents/code/optimization-course/latex/weather-enrich-means.png
 	width 30page%
 
 \end_inset
@@ -3967,7 +4076,7 @@ Kaggle
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename holidays-demo.png
+	filename /home/rotem/Documents/code/optimization-course/latex/holidays-demo.png
 	width 20page%
 
 \end_inset
@@ -4003,7 +4112,16 @@ Kaggle
 \noun default
 \color inherit
 \lang english
-python_code/model/features/holidays.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/features/holidays.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/features/holidays.py"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -4029,7 +4147,7 @@ python_code/model/features/holidays.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename trip_distance_hist2.png
+	filename /home/rotem/Documents/code/optimization-course/latex/trip_distance_hist2.png
 	width 30page%
 
 \end_inset
@@ -4184,7 +4302,7 @@ python_code/model/features/holidays.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename trip_distance_hist.png
+	filename /home/rotem/Documents/code/optimization-course/latex/trip_distance_hist.png
 	width 30page%
 
 \end_inset
@@ -4274,7 +4392,16 @@ data_prep
 \noun default
 \color inherit
 \lang english
-python_code/model/data_prep.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/data_prep.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/data_prep.py"
+literal "false"
+
+\end_inset
+
+
 \lang hebrew
 : היא טוענת את המידע, מנקה אותו ומצמידה את כל הפיצ'רים המתוארים לעיל.
 \end_layout
@@ -4377,7 +4504,16 @@ Random Forest Regressor
 \noun default
 \color inherit
 \lang english
-python_code/model/model_learning.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/model_learning.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/model_learning.py"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4587,14 +4723,14 @@ Features
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename features2.png
+	filename /home/rotem/Documents/code/optimization-course/latex/features2.png
 	width 30page%
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename features1.png
+	filename /home/rotem/Documents/code/optimization-course/latex/features1.png
 	width 30page%
 
 \end_inset
@@ -4893,7 +5029,7 @@ out of bag score
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename random-forests-scores.png
+	filename /home/rotem/Documents/code/optimization-course/latex/random-forests-scores.png
 	width 30page%
 
 \end_inset
@@ -5176,7 +5312,7 @@ test
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename predict-noise.png
+	filename /home/rotem/Documents/code/optimization-course/latex/predict-noise.png
 	width 30page%
 
 \end_inset
@@ -5321,7 +5457,7 @@ test
  רציפה.
 \end_layout
 
-\begin_layout Remarks
+\begin_layout Remark*
 כמובן שגם הפונקציה 
 \begin_inset Formula $\frac{1}{2\epsilon}\int_{x-\epsilon}^{x+\epsilon}f(x)dx$
 \end_inset
@@ -5329,7 +5465,7 @@ test
  היא רציפה.
 \end_layout
 
-\begin_layout Remarks
+\begin_layout Remark*
 תהי החלוקה 
 \begin_inset Formula $\{x_{n_{i}}\}_{i=0}^{n}$
 \end_inset
@@ -5355,7 +5491,7 @@ test
 
 \end_layout
 
-\begin_layout Remarks
+\begin_layout Remark*
 על כן אם נבחר 
 \begin_inset Formula $\epsilon>0$
 \end_inset
@@ -5477,7 +5613,16 @@ predict
 \noun default
 \color inherit
 \lang english
-python_code/model/pretty_predict.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/model/pretty_predict.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/model/pretty_predict.py"
+literal "false"
+
+\end_inset
+
+
 \family roman
 \series medium
 \shape up
@@ -5514,7 +5659,7 @@ python_code/model/pretty_predict.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename pretty-predict.png.png
+	filename /home/rotem/Documents/code/optimization-course/latex/pretty-predict.png.png
 	width 50page%
 
 \end_inset
@@ -5667,7 +5812,7 @@ predict
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename pretty-predict-graph.png
+	filename /home/rotem/Documents/code/optimization-course/latex/pretty-predict-graph.png
 	width 30page%
 
 \end_inset
@@ -5853,7 +5998,7 @@ Regressor
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename regressor-wrapper.png
+	filename /home/rotem/Documents/code/optimization-course/latex/regressor-wrapper.png
 	width 30page%
 
 \end_inset
@@ -6010,7 +6155,16 @@ Nelder Mead
 \noun default
 \color inherit
 \lang english
-python_code/minimization
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/minimization"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/minimization"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -6138,7 +6292,7 @@ P_{k}(t)=R_{\bar{x}}(t)+\sigma_{k}\cdot\max(0,t-t_{max})^{2}+\sigma_{k}\cdot\max
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename penalty-method.png
+	filename /home/rotem/Documents/code/optimization-course/latex/penalty-method.png
 	width 30page%
 
 \end_inset
@@ -6189,7 +6343,7 @@ P_{k}(t)=R_{\bar{x}}(t)+\sigma_{k}\cdot\max(0,t-t_{max})^{2}+\sigma_{k}\cdot\max
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename penalty-minimum-finding.png
+	filename /home/rotem/Documents/code/optimization-course/latex/penalty-minimum-finding.png
 	width 30page%
 
 \end_inset
@@ -6775,7 +6929,16 @@ Shrink
 \noun default
 \color inherit
 \lang english
-python_code/minimization/nelder_mead.py
+
+\begin_inset CommandInset href
+LatexCommand href
+name "python_code/minimization/nelder_mead.py"
+target "https://github.com/JudahGazit/optimization-course/blob/master/python_code/minimization/nelder_mead.py"
+literal "false"
+
+\end_inset
+
+
 \lang hebrew
 .
 \end_layout
@@ -6934,7 +7097,7 @@ app.py
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename travel-time-minimization.png
+	filename /home/rotem/Documents/code/optimization-course/latex/travel-time-minimization.png
 	width 30page%
 
 \end_inset
@@ -7334,7 +7497,7 @@ Penalty Method
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename minimize-penalty-graph.png
+	filename /home/rotem/Documents/code/optimization-course/latex/minimize-penalty-graph.png
 	width 30page%
 
 \end_inset
@@ -7848,7 +8011,7 @@ Nelder Mean
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename expirament_results.png
+	filename /home/rotem/Documents/code/optimization-course/latex/expirament_results.png
 	width 40page%
 
 \end_inset

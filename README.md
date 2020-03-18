@@ -4,7 +4,7 @@ Project Structure:
 
 ├── README.md  // YOU ARE HERE<br>
 ├── app.py // main python file: preparing the data, training the model, finding minimal values over random dates<br>
-├── optimization-paper.pdf // the paper of this project<br>
+├── optimization.pdf // the paper of this project<br>
 ├── requirements.txt // standard python requirements file<br>
 ├── experiment_results.csv // result of the experiment the python file is running<br>
 ├── data <br>
