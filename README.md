@@ -11,8 +11,8 @@ Project Structure:
 │   └── // contains the data necessary for running
 ├── latex
 │   └── // contains the latex code creating the pdf file
-├── python_code
-│   └── // contains the python code for this project
+└── python_code
+   └── // contains the python code for this project
 </pre>
 
 Data taken from:
