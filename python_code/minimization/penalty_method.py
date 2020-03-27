@@ -13,7 +13,7 @@ def get_penalty_wrapper(regressor, time_of_day_min, time_of_day_max):
     return lambda t, factor: penalty_predict(regressor, t, time_of_day_min, time_of_day_max, factor)
 
 
-def minimize_penalty_in_boundry(regressor, t0, tmin, tmax, factor_iterations, minimizer, error=1e-5):
+def minimize_penalty_in_boundary(regressor, t0, tmin, tmax, factor_iterations, minimizer, error=1e-5):
     print(f'minimize using {t0}, {tmin}, {tmax}, {factor_iterations}')
     res = None
     last_res = None
