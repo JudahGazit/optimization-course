@@ -1,19 +1,19 @@
 # optimization-course
 
 Project Structure:
-
-├── README.md  // YOU ARE HERE<br>
-├── app.py // main python file: preparing the data, training the model, finding minimal values over random dates<br>
-├── optimization.pdf // the paper of this project<br>
-├── requirements.txt // standard python requirements file<br>
-├── experiment_results.csv // result of the experiment the python file is running<br>
-├── data <br>
-│   └── // contains the data necessary for running <br>
-├── latex <br>
-│   ├── // contains the latex code creating the pdf file <br>
-├── python_code <br>
-│   ├── // contains the python code for this project <br>
-
+<pre>
+├── README.md  // YOU ARE HERE
+├── app.py // main python file: preparing the data, training the model, finding minimal values over random dates
+├── optimization.pdf // the paper of this project
+├── requirements.txt // standard python requirements file
+├── experiment_results.csv // result of the experiment the python file is running
+├── data
+│   └── // contains the data necessary for running
+├── latex
+│   └── // contains the latex code creating the pdf file
+├── python_code
+│   └── // contains the python code for this project
+</pre>
 
 Data taken from:
 1. https://archive.org/details/nycTaxiTripData2013
