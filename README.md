@@ -1,5 +1,7 @@
 # optimization-course
 
+PDF FILE: https://github.com/JudahGazit/optimization-course/raw/master/optimization.pdf
+
 Project Structure:
 <pre>
 ├── README.md  // YOU ARE HERE
