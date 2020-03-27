@@ -1,8 +1,6 @@
 ## time - time_of_day_max <= 0
 ## time_of_day_min - time <= 0
 
-from python_code.minimization.nelder_mead import nelder_mead_minimize
-
 
 def penalty_predict(regressor, time_of_day, time_of_day_min, time_of_day_max, factor=1):
     res = regressor(time_of_day)
@@ -29,20 +27,3 @@ def minimize_penalty_in_boundry(regressor, t0, tmin, tmax, factor_iterations, mi
         counter += 1
     res = min([res, [regressor(tmin), tmin], [regressor(tmax), tmax]])
     return res
-
-
-def minimize_penalty(regressor, t0, tmin, tmax, factor_iterations=5, boundry_iterations=10, error=1e-3):
-    counter = 0
-    min_res = minimize_penalty_in_boundry(regressor, t0, tmin, tmax, factor_iterations, nelder_mead_minimize, error)
-    min_left = None
-    min_right = None
-    while (min_left is None or min_right is None or max([min_res[0] - min_left[0], min_res[0] - min_right[0]]) > error) \
-            and counter < boundry_iterations:
-        min_res = min([min_res, min_left or [float('infinity')], min_right or [float('infinity')]])
-        print(f'current minimum is {min_res[0], min_res[1] / 60 / 60}')
-        min_left = minimize_penalty_in_boundry(regressor, tmin / 2, tmin, min_res[1], factor_iterations,
-                                               nelder_mead_minimize, error)
-        min_right = minimize_penalty_in_boundry(regressor, tmax * 2, min_res[1], tmax, factor_iterations,
-                                                nelder_mead_minimize, error)
-        counter += 1
-    return min_res
