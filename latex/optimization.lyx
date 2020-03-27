@@ -1655,7 +1655,7 @@ ID
 \begin_inset Newline newline
 \end_inset
 
-medallion hack_license vendor_id rate_code store_and_fwd_flag
+medallion, hack_license, vendor_id, rate_code, store_and_fwd_flag
 \end_layout
 
 \begin_layout Itemize
@@ -1675,11 +1675,7 @@ passenger_count
 
 
 \lang english
-pickup_datetime dropoff_datetime
-\lang hebrew
- 
-\lang english
-trip_time_in_secs
+pickup_datetime, dropoff_datetime, trip_time_in_secs
 \end_layout
 
 \begin_layout Itemize
@@ -1699,7 +1695,7 @@ trip_distance
 
 
 \lang english
-pickup_longitude pickup_latitude dropoff_longitude dropoff_latitude
+pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude
 \end_layout
 
 \begin_layout Standard
@@ -2145,61 +2141,7 @@ GRID
 \begin_inset Quotes erd
 \end_inset
 
-ג כלל המידע, אני לוקח את
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-5
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\numeric off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-זוגות ה
+ג כלל המידע, קיבלנו בעבור כל נסיעה זוג
 \family roman
 \series medium
 \shape up
@@ -2253,8 +2195,9 @@ Grids
 \uwave default
 \noun default
 \color inherit
-)זה של תחילת הנסיעה וזה של סיום הנסיעה( שהופיעו הכי הרבה במידע, ואותם שומר
- בקבצים נפרדים )כדי שאוכל לאמן את המודל שלי עליהם בלבד(.
+)זה של תחילת הנסיעה וזה של סיום הנסיעה(.
+ ניקח את חמשת הזוגות שהופיעו הכי הרבה במידע, ואותם שומר בקבצים נפרדים )כדי
+ שאוכל לאמן את המודל שלי עליהם בלבד(.
  התוצר של התהליך נכתב לנתיב
 \family roman
 \series medium
@@ -2989,6 +2932,34 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/rotem/Documents/code/optimization-course/latex/trip_time_hist.png
 	width 30page%
@@ -2996,6 +2967,47 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+היסטוגרמת משך הנסיעות בשניות
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/rotem/Documents/code/optimization-course/latex/trip_distance_hist.png
 	width 30page%
@@ -3005,7 +3017,41 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+היסטוגרמת אורכי הנסיעות במיילים
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/rotem/Documents/code/optimization-course/latex/time_of_day_hist.png
 	width 30page%
@@ -3013,9 +3059,72 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+היסטוגרמת זמני תחילת הנסיעה, מיוצג בתור שניות מאז תחילת היום
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/rotem/Documents/code/optimization-course/latex/trip_speed_hist.png
 	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+היסטוגרמת מהירות הנסיעה )מיילים לשנייה(
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4997,7 +5106,7 @@ OOB
 \lang english
 out of bag score
 \lang hebrew
-, באופן כללי חישוב
+, באופן כללי זהו חישוב
 \family roman
 \series medium
 \shape up
